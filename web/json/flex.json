@@ -1,0 +1,94 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "giga",
+      "direction": "ltr",
+      "header": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "目標を選択してください",
+            "color": "#ffffff",
+            "align": "center",
+            "size": "sm",
+            "gravity": "center",
+            "decoration": "none",
+            "position": "relative",
+            "margin": "none",
+            "wrap": true,
+            "style": "italic",
+            "weight": "bold"
+          }
+        ],
+        "backgroundColor": "#27ACB2",
+        "paddingTop": "19px",
+        "paddingAll": "12px",
+        "paddingBottom": "16px"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "こんにちは",
+              "text": "一番目を選択します！"
+            },
+            "adjustMode": "shrink-to-fit",
+            "style": "secondary"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "こんにちは",
+              "text": "二番目を選択します！"
+            },
+            "style": "secondary",
+            "adjustMode": "shrink-to-fit"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "こんにちは",
+              "text": "三番目を選択します！"
+            },
+            "style": "secondary",
+            "adjustMode": "shrink-to-fit"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "こんにちは",
+              "text": "四番目を選択します！"
+            },
+            "style": "secondary",
+            "gravity": "center",
+            "adjustMode": "shrink-to-fit"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "こんにちは",
+              "text": "他の目標を見たいです！"
+            },
+            "style": "secondary",
+            "gravity": "center",
+            "adjustMode": "shrink-to-fit"
+          }
+        ],
+        "spacing": "md",
+        "paddingAll": "12px"
+      }
+    }
+  ]
+}

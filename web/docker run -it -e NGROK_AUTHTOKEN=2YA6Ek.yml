@@ -1,0 +1,1 @@
+docker run -it -e NGROK_AUTHTOKEN=2YA6Ekqi5lhb6SqVamwREYFQzQ8_2wLzQjgR7etBy8H7vnbep -v $(pwd)/ngrok.yml:/home/ngrok/.ngrok2/ngrok.yml -p 4040:4040 --name ngrok_b3 wernight/ngrok:latest http web_b3:80

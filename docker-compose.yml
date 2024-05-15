@@ -1,0 +1,69 @@
+version: "3.8"
+
+services:
+  # Apache Webサーバ
+  web:
+    container_name: web_b3
+    # for Apple Silicon Mac
+    # platform: linux/amd64
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    volumes:
+      - ./web:/var/www/html
+      - ./web/php.ini:/usr/local/etc/php/php.ini
+    ports:
+      - 80:80
+    depends_on:
+      - mysql
+
+  #MySQL
+  mysql:
+    container_name: database_b3
+    # for Apple Silicon Mac
+    # platform: linux/arm64/v8
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQL_DATABASE
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+
+  #phpMyAdmin
+  phpmyadmin:
+    container_name: phpMyAdmin_b3
+    depends_on:
+      - mysql
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: mysql
+    restart: always
+    ports:
+      - "81:80"
+
+  #ngrok(LINEbot ローカル動作確認用)
+  ngrok:
+    container_name: ngrok_b3
+    # for Apple Silicon Mac
+    # platform: linux/amd64
+    # image: wernight/ngrok:latest
+    image: ngrok/ngrok:latest
+    # volumes:
+    #   - ./ngrok.yml:/home/ngrok/.ngrok2/ngrok.yml
+    ports:
+      - 4040:4040
+    command: "http web_b3:80"
+    environment:
+      # NGROK_PORT: web_b3:80
+      # NGROK_AUTH: ${NGROK_AUTH_TOKUN}
+      - NGROK_AUTHTOKEN=${NGROK_AUTH_TOKUN}
+      - NGROK_REGION=jp
+    networks:
+      - default

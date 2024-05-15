@@ -1,0 +1,1112 @@
+{"question":[
+    {
+      "id" : "1",
+      "text" : "年齢",
+      "name" : "age",
+      "answer" : "",
+      "type" : "form",
+      "jenre" : "基本情報",
+      "jenre_No" : "1",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0",
+      "//" : "applicable => 0 : 必須回答, 1 => 定年の人はいずれか1つ回答, 2 => 該当者のみ回答"
+    },
+    {
+      "id" : "2",
+      "text" : "性別",
+      "name" : "gender",
+      "answer" : ["男性", "女性"],
+      "type" : "radio",
+      "jenre" : "基本情報",
+      "jenre_No" : "0",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "3",
+      "text" : "現在の生活について該当するもの",
+      "name" : "lifeStyle",
+      "answer" : ["独身","家族同居","単身赴任","その他"],
+      "type" : "select",
+      "jenre" : "基本情報",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "4",
+      "text" : "同居している家族について該当するもの",
+      "name" : "cohabitant",
+      "answer" : ["配偶者","配偶者、子","子","親、配偶者、子",
+                  "親、兄弟等","その他"],
+      "type" : "select",
+      "jenre" : "基本情報",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "5",
+      "text" : "家庭での問題点について該当するもの",
+      "name" : "homeProblem",
+      "answer" : ["配偶者の病気","子供の病気","年寄りの介護","同居者の問題点","その他","特になし"],
+      "type" : "select",
+      "jenre" : "基本情報",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "5",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+      "id" : "6",
+      "text" : "就寝時間",
+      "name" : "bedTime",
+      "answer" : ["0～1時", "1～2時", "2～3時", "3～4時", "4～5時", "5～6時", "6～7時", "7～8時",
+                  "8～9時", "9～10時", "10～11時", "11～12時", "12～13時", "13～14時", "14～15時",
+                  "15～16時", "16～17時", "17～18時", "18～19時", "19～20時", "20～21時", "21～22時",
+                  "22～23時", "23～24時"],
+      "type" : "select",
+      "jenre" : "睡眠",
+      "jenre_No" : "1",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "7",
+      "text" : "寝付くまでの時間",
+      "name" : "fallasleepTime",
+      "answer" : ["15分以下","15～30分","30～60分","60分以上"],
+      "type" : "select",
+      "jenre" : "睡眠",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+
+    {
+      "id" : "8",
+      "text" : "起床時間",
+      "name" : "wakeupTime",
+      "answer" : ["0～1時", "1～2時", "2～3時", "3～4時", "4～5時", "5～6時", "6～7時", "7～8時",
+                  "8～9時", "9～10時", "10～11時", "11～12時", "12～13時", "13～14時", "14～15時",
+                  "15～16時", "16～17時", "17～18時", "18～19時", "19～20時", "20～21時", "21～22時",
+                  "22～23時", "23～24時"],
+      "type" : "select",
+      "jenre" : "睡眠",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "9",
+      "text" : "睡眠の質",
+      "name" : "sleepQuality",
+      "answer" : ["熟眠","浅い眠り","不眠"],
+      "type" : "select",
+      "jenre" : "睡眠",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "10",
+      "text" : "就寝後目が覚めることはありますか",
+      "name" : "halfway",
+      "answer" : [ "なし","あり（１回）", "あり（2回以上）"],
+      "type" : "select",
+      "jenre" : "睡眠",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+
+
+
+
+
+
+
+
+    {
+      "id" : "11",
+      "text" : "好きな食べ物(３つまで選択可)",
+      "name" : "favoriteFood[]",
+      "answer" : ["パン食","和食","卵","野菜","フルーツ","魚類","肉類","ご飯もの","洋食","中華",
+                  "麺類","弁当","脂っぽい食事","その他","なし"],
+      "type" : "checkbox",
+      "jenre" : "食事",
+      "jenre_No" : "1",
+      "free_text" : "0",
+      "check_Num" : "3",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+
+    },
+    {
+      "id" : "12",
+      "text" : "嫌いな食べ物(３つまで選択可)",
+      "name" : "hatedFood[]",
+      "answer" : ["パン食","和食","卵","野菜","フルーツ","魚類","肉類","ご飯もの","洋食","中華",
+                  "麺類","弁当","脂っぽい食事","その他","なし"],
+      "type" : "checkbox",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "3",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "13",
+      "text" : "味付け好み(３つまで選択可)",
+      "name" : "taste[]",
+      "answer" : ["濃い","薄い","辛い","甘い","酸っぱい","苦い","塩っぽい","普通"],
+      "type" : "checkbox",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "3",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "14",
+      "text" : "飲酒の頻度",
+      "name" : "sake",
+      "answer" : ["毎日飲む","週５～６日飲む","週３～４日飲む","週１～２日飲む","飲まない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "15",
+      "text" : "よく飲むお酒の種類",
+      "name" : "sakeType",
+      "answer" : ["飲まない","ビール","日本酒","ウイスキー","ワイン","焼酎","チューハイ","その他"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "16",
+      "text" : "1日当たりの平均飲酒量",
+      "name" : "sakeAmount",
+      "answer" : ["飲まない","350ｍｌ（0.7合）程度","500ｍｌ（１合）程度","350ｍｌ×２（1.5合）程度",
+                  "500ｍｌ×２（２合）以上"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+
+
+
+
+
+
+    {
+      "id" : "17",
+      "text" : "朝食は食べますか",
+      "name" : "breakfastFreq",
+      "answer" : ["毎日食べる","時々食べない","全く食べない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "18",
+      "text" : "朝食は何を食べましたか<br>(直近の仕事の日2日、休みの日1日)",
+      "name" : "breakfastMeal[]",
+      "answer" : ["バランスよく","米、麺類、パン中心", "野菜中心", "肉類中心",
+                  "魚類中心", "食べていない"],
+      "type" : "checkbox",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "2",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "19",
+      "text" : "朝食の時間",
+      "name" : "breakfastStartTime",
+      "answer" : ["5～6時","6～7時","7～8時","8～9時","食べない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "20",
+      "text" : "朝食にどれくらいの時間をかけて食べていますか",
+      "name" : "breakfastTime",
+      "answer" : ["15分未満","15分以上30分未満","30分以上60分未満","60分以上","食べない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "21",
+      "text" : "朝食は誰がつくりますか",
+      "name" : "break_maker",
+      "answer" : ["家族","自分","外食が主体","その他"],
+      "type" : "radio",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+
+
+
+
+
+    {
+      "id" : "22",
+      "text" : "昼食は食べますか",
+      "name" : "lunchFreq",
+      "answer" : ["毎日食べる","時々食べない","全く食べない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "23",
+      "text" : "昼食は主に何を食べましたか<br>(直近の仕事の日2日、休みの日1日)",
+      "name" : "lunchMeal[]",
+      "answer" : ["バランスよく","米、麺類、パン中心", "野菜中心", "肉類中心",
+                  "魚類中心", "食べていない"],
+      "type" : "checkbox",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "2",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "24",
+      "text" : "昼食の時間",
+      "name" : "lunchStartTime",
+      "answer" : ["11～12時","12～13時","13～14時","14～15時","食べない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "25",
+      "text" : "昼食にかける時間",
+      "name" : "lunchTime",
+      "answer" : ["15分未満","15分以上30分未満","30分以上60分未満","60分以上","食べない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "26",
+      "text" : "昼食の外食頻度(仕出し弁当を含む)",
+      "name" : "lunch_out_Freq",
+      "answer" : ["ほぼ毎回","時々する程度","ほとんど外食しない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+
+
+
+
+
+
+    {
+      "id" : "27",
+      "text" : "夕食は食べますか",
+      "name" : "dinnerFreq",
+      "answer" : ["毎日食べる","時々食べない","全く食べない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "28",
+      "text" : "夕食は主に何を食べましたか<br>(直近の仕事の日2日、休みの日1日)",
+      "name" : "dinnerMeal[]",
+      "answer" : ["バランスよく","米、麺類、パン中心", "野菜中心", "肉類中心",
+                  "魚類中心", "食べていない"],
+      "type" : "checkbox",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "2",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "29",
+      "text" : "夕食の時間",
+      "name" : "dinnerStartTime",
+      "answer" : ["17～18時","18～19時","19～20時","20～21時",
+                  "21～22時","22～23時","23～24時","食べない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "30",
+      "text" : "夕食にかける時間",
+      "name" : "dinnerTime",
+      "answer" : ["15分未満","15分以上30分未満","30分以上60分未満","60分以上","食べない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "31",
+      "text" : "夕食は誰が作りますか",
+      "name" : "dinner_maker",
+      "answer" : ["家族","自分","外食が主体","その他"],
+      "type" : "radio",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "32",
+      "text" : "夕食の外食頻度(コンビニ弁当等を含む)",
+      "name" : "dinner_out_Freq",
+      "answer" : ["ほぼ毎回","時々する程度","ほとんど外食しない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+
+
+
+
+    {
+      "id" : "33",
+      "text" : "間食の頻度（朝食・昼食・夕食以外の食事）",
+      "name" : "snackFreq",
+      "answer" : ["食べない","１～２回/週","３～４回/週","５～６回/週","ほどんど毎日"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "34",
+      "text" : "間食は何を食べることが多いですか（3つまで選択可）",
+      "name" : "snackMeal[]",
+      "answer" : ["スナック菓子","チョコレート類","アイス類","洋菓子（ケーキ、シュークリーム）",
+                  "和菓子（まんじゅう、羊羹）","飴・ガム・グミ等","ジュース・ドリンク類","その他","食べない"],
+      "type" : "checkbox",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "3",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "35",
+      "text" : "間食の時間帯",
+      "name" : "snackStartTime",
+      "answer" : ["朝食後","昼食後","夕食後","就寝前","食べない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "36",
+      "text" : "１年前と比べて間食の量は増えましたか",
+      "name" : "snack_compare",
+      "answer" : ["増加した","減少した","変わらない"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+
+
+    {
+      "id" : "37",
+      "text" : "排便のタイミング",
+      "name" : "defecation_time",
+      "answer" : ["午前中","昼間","午後","夜"],
+      "type" : "radio",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "38",
+      "text" : "排便の回数",
+      "name" : "defecation_num",
+      "answer" : ["2回以上/日","1～2回/日","1回/日","1回/2日","1回/3日以下"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "39",
+      "text" : "便の種類",
+      "name" : "defecation_quality",
+      "answer" : ["普通便","硬便","軟便","下痢便"],
+      "type" : "select",
+      "jenre" : "食事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+
+
+
+
+
+    {
+      "id" : "40",
+      "text" : "仕事内容",
+      "name" : "task",
+      "answer" : ["デスクワーク主体","営業","配達","立ち仕事主体","農業（機械化農業）","農業（手足を使った農業）","歩く時間１時間未満", "歩く時間１時間以上"],
+      "type" : "select",
+      "jenre" : "仕事",
+      "jenre_No" : "1",
+      "free_text" : "1",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+    {
+      "id" : "41",
+      "text" : "職業",
+      "name" : "task_job",
+      "answer" : ["公務員","国家公務員","地方公務員","会社員","個人事業主"],
+      "type" : "select",
+      "jenre" : "仕事",
+      "jenre_No" : "5",
+      "free_text" : "1",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+    {
+      "id" : "42",
+      "text" : "仕事での歩行時間",
+      "name" : "task_walk",
+      "answer" : ["歩く時間１時間未満","歩く時間１時間以上"],
+      "type" : "radio",
+      "jenre" : "仕事",
+      "jenre_No" : "5",
+      "free_text" : "1",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+    {
+      "id" : "43",
+      "text" : "勤務形態",
+      "name" : "task_form",
+      "answer" : ["日勤制","交替制"],
+      "type" : "radio",
+      "jenre" : "仕事",
+      "jenre_No" : "5",
+      "free_text" : "1",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+    {
+      "id" : "44",
+      "text" : "現在の職場",
+      "name" : "startJob",
+      "answer" : ["0～1年","1～2年","2～3年","3～5年","5年以上"],
+      "type" : "select",
+      "jenre" : "仕事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+    {
+      "id" : "45",
+      "text" : "月平均残業時間",
+      "name" : "overtime",
+      "answer" : ["なし","月１～19時間","月20～44時間","月45～79時間","月80～99時間","月100時間以上"],
+      "type" : "select",
+      "jenre" : "仕事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+    {
+      "id" : "46",
+      "text" : "昼休憩の過ごし方",
+      "name" : "lunchbreak",
+      "answer" : ["散歩","買い物","読書","仮眠","雑談","携帯、ゲーム等","その他"],
+      "type" : "select",
+      "jenre" : "仕事",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+
+
+
+
+
+
+
+
+    {
+      "id" : "47",
+      "text" : "通勤方法",
+      "name" : "commute",
+      "answer" : ["車","交通機関","自転車","徒歩","バイク","その他"],
+      "type" : "select",
+      "jenre" : "通勤",
+      "jenre_No" : "1",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+    {
+      "id" : "48",
+      "text" : "通勤時間",
+      "name" : "commuteTime",
+      "answer" : ["15分未満","15分以上30分未満","30分以上60分未満","60分以上"],
+      "type" : "select",
+      "jenre" : "通勤",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+
+
+
+
+
+
+
+
+    {
+      "id" : "49",
+      "text" : "あなたの喫煙状況",
+      "name" : "tabacco",
+      "answer" : ["吸ったことがない","禁煙者（禁煙して６か月以上）","禁煙者（禁煙して６か月未満）",
+                  "喫煙者（機会があれば禁煙しようと思う）","喫煙者（禁煙するつもりはない）"],
+      "type" : "select",
+      "jenre" : "喫煙",
+      "jenre_No" : "1",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "50-1",
+      "text" : "【喫煙者のみ】<br>１日当たりの喫煙本数",
+      "name" : "tabaccoNum",
+      "answer" : ["１本～５本","６本～10本","11本～15本","16本～20本","21本～30本","31本以上"],
+      "type" : "select",
+      "jenre" : "喫煙",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+    {
+      "id" : "50-2",
+      "text" : "【喫煙者のみ】<br>喫煙年数",
+      "name" : "tabaccoYear",
+      "answer" : ["１年未満","１年以上５年未満","５年以上10年未満","10年以上20年未満","20年以上"],
+      "type" : "select",
+      "jenre" : "喫煙",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+    {
+      "id" : "51-1",
+      "text" : "【禁煙者のみ】<br>禁煙前の１日当たりの喫煙本数",
+      "name" : "tabaccoQuitNum",
+      "answer" : ["１本～５本","６本～10本","11本～15本","16本～20本","21本～30本","31本以上"],
+      "type" : "select",
+      "jenre" : "喫煙",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+    {
+      "id" : "51-2",
+      "text" : "【禁煙者のみ】<br>禁煙前の喫煙年数",
+      "name" : "tabaccoQuitYear",
+      "answer" : ["１年未満","１年以上５年未満","５年以上10年未満","10年以上20年未満","20年以上"],
+      "type" : "select",
+      "jenre" : "喫煙",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+
+
+
+
+
+
+
+
+
+    {
+      "id" : "52-1",
+      "text" : "【万歩計を持っている人】<br>平均的な1日の歩数",
+      "name" : "pedometerYes",
+      "answer" : ["3,000歩未満","3,000歩以上5,000歩未満","5,000歩以上8,000歩未満",
+                  "8,000歩以上10,000歩未満","10,000歩以上"],
+      "type" : "select",
+      "jenre" : "歩行・ウォーキング・その他運動",
+      "jenre_No" : "1",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "2"
+    },
+    {
+      "id" : "52-2",
+      "text" : "【万歩計を持っていない人】<br>平均的な1日の歩行時間",
+      "name" : "pedometerNo",
+      "answer" : ["15分未満","15分以上30分未満","30分以上１時間未満","１時間以上２時間未満","２時間以上"],
+      "type" : "select",
+      "jenre" : "歩行・ウォーキング・その他運動",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "2"
+    },
+    {
+      "id" : "53",
+      "text" : "ウォーキングの頻度",
+      "name" : "walkNum",
+      "answer" : ["しない","週１回より少ない", "１～２回/週","３～４回/週","５～６回/週"],
+      "type" : "select",
+      "jenre" : "歩行・ウォーキング・その他運動",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "54",
+      "text" : "ウォーキングの継続期間",
+      "name" : "walkCareer",
+      "answer" : ["特に運動をしていない","６か月未満","６か月以上１年未満","１年以上２年未満","２年以上"],
+      "type" : "select",
+      "jenre" : "歩行・ウォーキング・その他運動",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "55",
+      "text" : "ウォーキングをする日",
+      "name" : "walkDayOfWeek",
+      "answer" : ["特に運動をしていない","平日（仕事の日）のみ","休日のみ","ほぼ毎日"],
+      "type" : "radio",
+      "jenre" : "歩行・ウォーキング・その他運動",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "56",
+      "text" : "ウォーキング以外の運動をしている場合、その内容を教えてください",
+      "name" : "otherMotion",
+      "answer" : ["特に運動をしていない", "ジョギング","自転車","フィットネス","スイミング","スポーツジム",
+                  "ウォーキングマシン","その他"],
+      "type" : "select",
+      "jenre" : "歩行・ウォーキング・その他運動",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "57",
+      "text" : "ウォーキング以外の運動の頻度",
+      "name" : "otherMotionFreq",
+      "answer" : ["しない","週１回より少ない", "１～２回/週","３～４回/週","５～６回/週"],
+      "type" : "select",
+      "jenre" : "歩行・ウォーキング・その他運動",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "58",
+      "text" : "ウォーキング以外の運動の継続期間",
+      "name" : "OtherwalkCareer",
+      "answer" : ["特に運動をしていない", "６か月未満","６か月以上１年未満","１年以上２年未満","２年以上"],
+      "type" : "select",
+      "jenre" : "歩行・ウォーキング・その他運動",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "59",
+      "text" : "ウォーキング以外の運動をする日",
+      "name" : "OtherMotionDayOfWeek",
+      "answer" : ["特に運動をしていない", "平日（仕事の日）のみ","休日のみ","ほぼ毎日"],
+      "type" : "radio",
+      "jenre" : "歩行・ウォーキング・その他運動",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "60",
+      "text" : "ウォーキング以外の運動をする時間帯<br>(3つまで選択可)",
+      "name" : "otherTimeZone[]",
+      "answer" : ["特に運動をしていない","午前・早朝","午前・朝食直前","午前・朝食後すぐ","午後・昼食直後すぐ",
+                  "午後・夕食後までの時間","午後・夕食直前","午後・夕食直後","午後・夕食後寝るまで",
+                  "午後・寝る直前"],
+      "type" : "checkbox",
+      "jenre" : "歩行・ウォーキング・その他運動",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "3",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+
+
+
+
+
+
+
+
+
+    {
+      "id" : "61",
+      "text" : "趣味",
+      "name" : "hobby",
+      "answer" : ["なし", "仕事", "読書","スポーツ","散歩","買い物","映画鑑賞","音楽鑑賞","ドライブ","その他"],
+      "type" : "select",
+      "jenre" : "趣味",
+      "jenre_No" : "1",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "62",
+      "text" : "趣味の頻度",
+      "name" : "hobbyFreq",
+      "answer" : ["しない","週１回より少ない","1～2回/週", "3～4回/週", "5～6回/週"],
+      "type" : "select",
+      "jenre" : "趣味",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "63",
+      "text" : "趣味に費やす1回当たりの時間",
+      "name" : "hobbyTime",
+      "answer" : ["15分未満", "15分以上30分未満","30分以上１時間未満","１時間以上２時間未満","２時間以上"],
+      "type" : "select",
+      "jenre" : "趣味",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+
+
+
+
+
+
+    {
+      "id" : "64",
+      "text" : "現在治療中の病気",
+      "name" : "chronicCondition[]",
+      "answer" : ["糖尿病","高血圧","高脂血症","高尿酸血症","肝臓病","心疾患",
+                  "肺疾患","腎疾患","精神疾患","その他","なし"],
+      "type" : "checkbox",
+      "jenre" : "その他",
+      "jenre_No" : "1",
+      "free_text" : "0",
+      "check_Num" : "9",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "65",
+      "text" : "既往歴：（過去にかかった大きな病気）があり現在治療していない病気",
+      "name" : "medicalHistory[]",
+      "answer" : ["脳疾患","心疾患","呼吸器疾患","消化器疾患","肝疾患","膵疾患","腎疾患",
+                  "代謝疾患（糖尿病etc.)","血液疾患","膠原病疾患","外傷（骨折etc.)","その他疾患","なし"],
+      "type" : "checkbox",
+      "jenre" : "その他",
+      "jenre_No" : "1",
+      "free_text" : "0",
+      "check_Num" : "9",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "66",
+      "text" : "歯磨きの回数",
+      "name" : "dentifrice",
+      "answer" : ["毎食後","２回/日","１回/日","磨かない"],
+      "type" : "select",
+      "jenre" : "その他",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "67",
+      "text" : "最近１か月のストレス度<br>【５段階で、５（重い）→１（軽い）】",
+      "name" : "stress",
+      "answer" : ["5","4","3","2","1"],
+      "type" : "select",
+      "jenre" : "その他",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "68",
+      "text" : "あなたは自宅の買い物(食料品の買い出しetc. )を自分でしますか",
+      "name" : "shopping",
+      "answer" : ["ほとんどしない","週に0，1回","週に2，3回","週に4、5回","週に6，7回"],
+      "type" : "select",
+      "jenre" : "その他",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "69",
+      "text" : "あなたがストレスを感じる原因",
+      "name" : "stressCauses",
+      "answer" : ["職場の人間関係","仕事そのもの","家庭問題","生活環境","その他"],
+      "type" : "select",
+      "jenre" : "その他",
+      "jenre_No" : "5",
+      "free_text" : "1",
+      "check_Num" : "0",
+      "job_or_holi" : "1",
+      "applicable" : "1"
+    },
+    {
+      "id" : "70",
+      "text" : "最近１か月の週当たりの休日日数",
+      "name" : "holiday_Num",
+      "answer" : ["なし", "１日/週","２日/週","３日～４日/週","５日以上/週"],
+      "type" : "select",
+      "jenre" : "その他",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+    {
+      "id" : "71",
+      "text" : "最近１か月の休日の曜日",
+      "name" : "holiday",
+      "answer" : ["土、日、祝日","平日","不定期"],
+      "type" : "radio",
+      "jenre" : "その他",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "2"
+    },
+
+    {
+      "id" : "72",
+      "text" : "長所（複数選択可）<br>※難しく考えずにお答えください",
+      "name" : "strongPoint[]",
+      "answer" : ["協調性がある","真面目","誠実","リーダーシップがある","思いやりがある",
+                  "コミュニケーション能力が高い","責任感がある","忍耐力がある","社交的",
+                  "我慢強い","明朗活発である","地道な努力ができる","その他"],
+      "type" : "checkbox",
+      "jenre" : "その他",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    },
+    {
+      "id" : "73",
+      "text" : "短所（複数選択可）<br>※難しく考えずにお答えください",
+      "name" : "shortcoming[]",
+      "answer" : ["頑固","優柔不断","神経質","短気","心配性","思いやりに欠ける","気が弱い",
+                  "感情表現が下手","軽率な部分がある","ムラがある","慎重すぎる",
+                  "ネガティブ思考","その他"],
+      "type" : "checkbox",
+      "jenre" : "その他",
+      "jenre_No" : "5",
+      "free_text" : "0",
+      "check_Num" : "0",
+      "job_or_holi" : "0",
+      "applicable" : "0"
+    }
+
+]}

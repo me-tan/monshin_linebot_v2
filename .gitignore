@@ -1,0 +1,7 @@
+.env
+.DS_Store
+
+mysql/data
+mysql/initdb.d
+
+web/vendor

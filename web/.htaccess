@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+  # mod_rewiteを有効化
+  RewriteEngine On
+  RewriteBase /
+
+  # /webhookにアクセスされた場合は/index.phpにリダイレクト
+  RewriteRule ^webhook$ /index.php [L]
+
+  # /index.phpに直接アクセスされた場合は何もしない
+  RewriteRule ^index\.php$ - [L]
+
+  # システムパスにファイルもディレクトリもない場合indexにリダイレクト
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.php [L]
+</IfModule>
