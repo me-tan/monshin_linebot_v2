@@ -4390,6 +4390,7 @@ function makeUser($userDay){
   return $flexMessage;
 }
 // コメントアウト
+// function makeUser($userDay){
 main();
 
 ?>
