@@ -50,14 +50,16 @@ $i =0;
 
 // セレクトボックスの値を格納する配列
 $institutionsList = array(
-	"市医師会成人病センター",
-	"小池クリニック",
-	"和歌山県警",
-	"キクロン",
-	"剤生堂",
-	"紀陽銀行",
-	"和歌山トヨタ",
-	"関西電力",
+	"和歌山大学",
+	"その他"
+	// "市医師会成人病センター",
+	// "小池クリニック",
+	// "和歌山県警",
+	// "キクロン",
+	// "剤生堂",
+	// "紀陽銀行",
+	// "和歌山トヨタ",
+	// "関西電力",
 );
 
 
@@ -75,7 +77,7 @@ if( !empty($_POST['btn_issue']) ) {
 
 
 //$_POST['applyId'] が空じゃないとき⇒なにかしらの値を入力したとき (何も入力せずボタンを押すと再リロード)
-if( !empty($_POST['institution']) && !empty($_POST['login_num']) && !empty($_POST['year']) && !empty($_POST['month']) && !empty($_POST['day'])) :
+if( !empty($_POST['institution']) && !empty($_POST['login_num']) && !empty($_POST['year']) && !empty($_POST['month']) && !empty($_POST['day']) && !empty($_POST['line_uid'])) :
 
 	try {
 			//空白文字列の削除
@@ -84,14 +86,14 @@ if( !empty($_POST['institution']) && !empty($_POST['login_num']) && !empty($_POS
 			$_POST['login_num'] = mb_convert_kana( $_POST['login_num'], 'a');
 
 			//ログイン認証用の文字列を作成（各要素を結合）
-			$pass_encrypt = $_POST['institution']. $_POST['login_num']. $_POST['year']. $_POST['month']. $_POST['day'];
+			$pass_encrypt = $_POST['institution']. $_POST['login_num']. $_POST['year']. $_POST['month']. $_POST['day'] . $_POST['line_uid'];
 			$pass_encrypt = hash('sha256',$pass_encrypt); //ハッシュ化を済ませておく
 
 
 			$birth =  $_POST['year']. "年". $_POST['month']. "月". $_POST['day']. "日";
 
 
-			$id = insertTable_Encrypted( $pass_encrypt, $_POST['institution'] , $_POST['login_num'], $_POST['year'], $_POST['month'] ,$_POST['day'] ); //暗号化した後、挿入した行のidが返ってくる
+			$id = insertTable_Encrypted( $pass_encrypt, $_POST['institution'] , $_POST['login_num'], $_POST['year'], $_POST['month'] ,$_POST['day'] ,$_POST['line_uid']); //暗号化した後、挿入した行のidが返ってくる
 			$_SESSION['id'] = $id;
 
 			
@@ -102,6 +104,7 @@ if( !empty($_POST['institution']) && !empty($_POST['login_num']) && !empty($_POS
 			$_POST['year']="";
 			$_POST['month']="";
 			$_POST['day']="";
+			$_POST['line_uid']="";
 
 
 
@@ -150,7 +153,7 @@ endif;
 
 </head>
 
-<title>定期健康診断問診票</title>
+<title>問診票</title>
 
 <body>
 <div id="wrapper">
@@ -165,12 +168,7 @@ endif;
 
 
 		<!-- header -->
-		<div id="pc-header" class="hidden-sp">
-				<div class="header-inner flbox">
-	    			<img src="assets/logo_koike_3.png" alt="和歌山 内科 小池クリニック KC検診システム">
-	    			<h1 class="headline">和歌山 内科｜小池クリニック(和歌山市)</h1>
-				</div><!-- //header-inner -->
-		</div>
+
 
 
 		<!-- 登録完了後の画面 $flag=1 の時　-->
@@ -199,7 +197,7 @@ endif;
 					<!-- １つ目の説明文  -->
 					<div class="form_parts_login" style="margin-top: 1em!important;">
 						<span >
-						健診受診機関 又は職場 を選択してください
+						在学中の大学を選択してください
 						</span>
 					</div>
 
@@ -207,7 +205,7 @@ endif;
 						<table class="login_table" align="center" >
 							<tbody>
 								<tr>
-										<th class="login_table_th">健診受診機関<br>職場</th>
+										<th class="login_table_th">大学</th>
 										<td class="login_table_td">
 											<select name="institution" required>
 												<option value="">-</option>
@@ -230,8 +228,7 @@ endif;
 					<!-- ２つ目の説明文 -->
 						<div class="form_parts_login">
 							<span  >
-							健診受診機関（1、2番を選択された方）は健診受診番号を、
-							職場（3番以降を選択された方）は職員番号を入力してください</span>
+							LINEのIDと氏名（姓と名の間に空白を入れず，ひらがなで入力してください）を<br>入力してください</span>
 						</div>
 
 
@@ -239,9 +236,18 @@ endif;
 
 						<table class="login_table" align="center" >
 							<tbody>
+								<tr>
+									<th class="login_table_th">LINEのID</th>
+									<td class="login_table_td">
+											<input  type="text" name="line_uid" size="19em"  placeholder="例）123456"
+
+											value = "" autocomplete="off"
+											title=""/>
+									</td>
+								</tr>
 								<!-- ２つ目の質問  健診番号-->
 								<tr>
-									<th class="login_table_th">健診受診番号<br>職員番号</th>
+									<th class="login_table_th">氏名</th>
 									<td class="login_table_td">
 											<input  type="text" name="login_num" size="19em"  placeholder="例）123456"
 

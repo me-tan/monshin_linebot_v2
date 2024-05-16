@@ -15,6 +15,8 @@ function call_chatGPT($prompt) {
     // $OPENAI_API_KEY = getenv("CHATGPT_API_KEY");
     $OPENAI_API_KEY = "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";
 
+    error_log(print_r("15" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+
     $ch = curl_init();
     $headers  = [
         'Accept: application/json',

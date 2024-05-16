@@ -29,8 +29,8 @@ function connectMysql() {
 // DBの中身を取得する関数
 function getMnsn($pass_encrypt){
     $pdo = connectMysql(); // DBとの接続開始
-    $stmt = $pdo->prepare("SELECT * FROM mnsn_sheet where :pass_hash = pass_hash ORDER BY id DESC");
-    $stmt->bindValue(':pass_hash', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+    $stmt = $pdo->prepare("SELECT * FROM mnsn_sheet_linebot_test where :line_uid = line_uid ORDER BY id DESC");
+    $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
     //$gender = "女性";
     //$stmt = $pdo->prepare("SELECT * FROM mnsn_sheet where :gender = gender");
     // $stmt->bindValue(':gender', $gender, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
@@ -79,56 +79,33 @@ function getMnsn($pass_encrypt){
     return $message_from_gpt;
 }
 
-function main_backend(){
-  $institution = '市医師会成人病センター';
-  $login_num = '115360';
-  $year = '1993';
-  $month = '10';
-  $day = '29';
 
-  // $institution = '小池クリニック';
-  // $login_num = 'test';
-  // $year = '2000';
-  // $month = '01';
-  // $day = '01';
+// function getMysql() {
+//   $pdo = connectMysql(); // DBとの接続開始
+//   $stmt = $pdo->prepare("SELECT * FROM mnsn_sheet_linebot_test where :line_uid = line_uid ORDER BY id DESC");
+//   $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+//   $stmt->execute();
+//   $all = $stmt->fetchAll(PDO::FETCH_ASSOC); //全件取得
+//   // ============= ここまでDBからの取得 =============
+//   return $all;
+// }
 
-
-  $pass_encrypt = $institution . $login_num . $year . $month . $day; //ログイン認証用の文字列を作成（各要素を結合）
-  $pass_encrypt = hash('sha256', $pass_encrypt); //結合した要素を暗号化
-
-  //$mnsn = getMnsn($pass_encrypt); // DBから問診票を取得
-  //return $mnsn;
-  return $pass_encrypt;
-}
-
-function getMysql() {
-  $pass_encrypt = main_backend();
-  $pdo = connectMysql(); // DBとの接続開始
-  $stmt = $pdo->prepare("SELECT * FROM mnsn_sheet where :pass_hash = pass_hash ORDER BY id DESC");
-  $stmt->bindValue(':pass_hash', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
-  $stmt->execute();
-  $all = $stmt->fetchAll(PDO::FETCH_ASSOC); //全件取得
-  // ============= ここまでDBからの取得 =============
-  return $all;
-}
-
-function putTargetMysql($sql, $serialize_gpt) {
-  $pass_encrypt = main_backend();
+function putTargetMysql($sql, $serialize_gpt, $pass_encrypt) {
   $pdo = connectMysql(); // DBとの接続開始
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':serialize_gpt', $serialize_gpt, PDO::PARAM_STR); // bindValueメソッドでパラメータをセット
-  $stmt->bindValue(':pass_hash', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
   $stmt->execute();
   //$all = $stmt->fetchAll(PDO::FETCH_ASSOC); //全件取得
   // ============= ここまでDBからの取得 =============
 }
 
-function putOneTargetMysql($sql, $targetName) {
-  $pass_encrypt = main_backend();
+function putOneTargetMysql($sql, $targetName, $pass_encrypt) {
+
   $pdo = connectMysql(); // DBとの接続開始
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':targetName', $targetName, PDO::PARAM_STR); // bindValueメソッドでパラメータをセット
-  $stmt->bindValue(':pass_hash', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
   $stmt->execute();
   //$all = $stmt->fetchAll(PDO::FETCH_ASSOC); //全件取得
   // ============= ここまでDBからの取得 =============
@@ -145,29 +122,42 @@ function putOneTargetMysql($sql, $targetName) {
 //   $stmt->execute();
 // }
 
-function putMessageLogMysql($sender, $messages, $situation, $contents) {
-  $pass_encrypt = main_backend();
+function putMessageLogMysql($sender, $messages, $situation, $contents, $pass_encrypt) {
   $pdo = connectMysql(); // DBとの接続開始
+  error_log(print_r($sender , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+  error_log(print_r($messages , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+  error_log(print_r($situation , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+  error_log(print_r($contents , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+  error_log(print_r($pass_encrypt , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
   // 現在の日時を取得
   $currentDateTime = date('Y-m-d H:i:s');
 
-  $stmt = $pdo->prepare("INSERT INTO message_log (pass_hash, sender, messages, situation, contents, created_time) VALUES (:pass_hash, :sender, :messages, :situation, :contents, :created_time)");
+  $stmt = $pdo->prepare("INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)");
   $stmt->bindValue(':messages', $messages, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  error_log(print_r("13.6" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
   $stmt->bindValue(':sender', $sender, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  error_log(print_r("13.7" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
   $stmt->bindValue(':situation', $situation, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  error_log(print_r("13.8" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
   $stmt->bindValue(':contents', $contents, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
-  $stmt->bindValue(':pass_hash', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  error_log(print_r("13.9" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+  $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  error_log(print_r("13.10" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
   $stmt->bindValue(':created_time', $currentDateTime, PDO::PARAM_STR); // 現在の日時を追加
+  error_log(print_r("13.11" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
   $stmt->execute();
+  
+  error_log(print_r($stmt , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+
+
 }
 
-function getTargetMysql($situation){
+function getTargetMysql($situation, $pass_encrypt){
 
-  $pass_encrypt = main_backend();
   $pdo = connectMysql(); // DBとの接続開始
-  $stmt = $pdo->prepare("SELECT contents FROM message_log WHERE :pass_hash = pass_hash AND :situation = situation ORDER BY id DESC LIMIT 1");
-  $stmt->bindValue(':pass_hash', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  $stmt = $pdo->prepare("SELECT contents FROM message_log WHERE :line_uid = line_uid AND :situation = situation ORDER BY id DESC LIMIT 1");
+  $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
   $stmt->bindValue(':situation', $situation, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
   // error_log(print_r($stmt , true) . "\n", 3, dirname(_FILE_) . '/debug.log');
 
@@ -177,12 +167,11 @@ function getTargetMysql($situation){
   return $result;
 }
 
-function getOtherTargetMysql($situation, $item){
+function getOtherTargetMysql($situation, $item, $pass_encrypt){
 
-  $pass_encrypt = main_backend();
   $pdo = connectMysql(); // DBとの接続開始
-  $stmt = $pdo->prepare("SELECT $item FROM message_log WHERE :pass_hash = pass_hash AND :situation = situation ORDER BY id DESC LIMIT 1");
-  $stmt->bindValue(':pass_hash', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  $stmt = $pdo->prepare("SELECT $item FROM message_log WHERE :line_uid = line_uid AND :situation = situation ORDER BY id DESC LIMIT 1");
+  $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
   $stmt->bindValue(':situation', $situation, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
   // error_log(print_r($stmt , true) . "\n", 3, dirname(_FILE_) . '/debug.log');
 
@@ -192,24 +181,23 @@ function getOtherTargetMysql($situation, $item){
   return $result;
 }
 
-function getOneMysql($targetNum, $item) {
-  $pass_encrypt = main_backend();
+function getOneMysql($targetNum, $item, $pass_encrypt) {
   $pdo = connectMysql(); // DBとの接続開始
-  $stmt = $pdo->prepare("SELECT $item FROM $targetNum WHERE :pass_hash = pass_hash ORDER BY id DESC");
-  $stmt->bindValue(':pass_hash', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
-  // error_log(print_r($stmt , true) . "\n", 3, dirname(_FILE_) . '/debug.log');
+  $stmt = $pdo->prepare("SELECT $item FROM $targetNum WHERE :line_uid = line_uid ORDER BY id DESC");
+  $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  error_log(print_r($stmt , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
   $stmt->execute();
   $result = $stmt->fetch(PDO::FETCH_ASSOC); //全件取得
   // ============= ここまでDBからの取得 =============
+  error_log(print_r($result , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
   return $result;
 }
 
-function updateOneMysql($keepDay,$targetNum, $item) {
-  $pass_encrypt = main_backend();
+function updateOneMysql($keepDay,$targetNum, $item, $pass_encrypt) {
   $pdo = connectMysql(); // DBとの接続開始
-  $stmt = $pdo->prepare("UPDATE $targetNum SET $item = :keepDay WHERE :pass_hash = pass_hash ORDER BY id DESC");
+  $stmt = $pdo->prepare("UPDATE $targetNum SET $item = :keepDay WHERE :line_uid = line_uid ORDER BY id DESC");
   $stmt->bindValue(':keepDay', $keepDay, PDO::PARAM_STR); // bindValueメソッドでパラメータをセット
-  $stmt->bindValue(':pass_hash', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
   $stmt->execute();
   //$all = $stmt->fetchAll(PDO::FETCH_ASSOC); //全件取得
   // ============= ここまでDBからの取得 =============

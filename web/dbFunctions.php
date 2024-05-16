@@ -27,13 +27,13 @@ function updateTable_Interview($pass_encrypt, $formValue, $arrayName) { // pass_
 
     $valuesName = ':'.$arrayName; //VALUESの中にphpの文字列演算子が使えないので，あらかじめ変数定義
 
-    $stmt = $pdo -> prepare("UPDATE mnsn_sheet_linebot_test SET $arrayName = $valuesName WHERE :pass_hash = pass_hash ORDER BY id DESC limit 1");
+    // $stmt = $pdo -> prepare("UPDATE mnsn_sheet_linebot_test SET $arrayName = $valuesName WHERE :pass_hash = pass_hash ORDER BY id DESC limit 1");
 
     $params = array(
       $valuesName => $formValue,
       'pass_hash' => $pass_encrypt);
 
-    $stmt->execute($params); // 実行
+    // $stmt->execute($params); // 実行
 }
 
 
@@ -67,12 +67,86 @@ function insertTable_Interview($formValue_name,$formValue_birth, $formValue_tel,
 }
 */
 
+// 問診票の登録時にupdateかinsertか分岐させる
+function setDB($form_Id, $db_columns, $flag_db_exisit){
+    $pdo = connectMysql(); 
+    
+    //ログイン認証用の文字列を作成（各要素を結合）
+	$pass_encrypt = $_SESSION['institution']. $_SESSION['login_num']. $_SESSION['year']. $_SESSION['month']. $_SESSION['day'] . $_SESSION['line_uid'];
+	$pass_encrypt = hash('sha256',$pass_encrypt); //ハッシュ化を済ませておく
+    error_log(print_r($pass_encrypt , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+
+    
+    // 関数呼び出して公開鍵で暗号化
+    $db_columns['pass_hash'] = $pass_encrypt;
+    $db_columns['institution'] = value_Encrypted($_SESSION['institution']);
+    $db_columns['login_num'] = value_Encrypted($_SESSION['login_num']);
+    $db_columns['year'] = value_Encrypted($_SESSION['year']);
+    $db_columns['month'] = value_Encrypted($_SESSION['month']);
+    $db_columns['day'] = value_Encrypted($_SESSION['day']);
+    // $db_columns['line_uid'] = value_Encrypted($_SESSION['line_uid']);
+    $db_columns['line_uid'] = $_SESSION['line_uid'];
+    
+    if($flag_db_exisit == True){// 初回入力
+        $db_columns['id'] = $form_Id;
+
+        // SQL文の生成
+        $len = count($db_columns);
+        $count = 0;
+        $sql = "SET ";
+        foreach(array_keys($db_columns) as $key){
+            // error_log(print_r($key , true) . "\n", 3, dirname(_FILE_) . '/debug.log');
+            $count++;
+            if($len != $count){// 最後の要素ではないとき
+                $sql = $sql . $key . " = :" . $key . ", "; // 文字列結合
+            }else{
+                $sql = $sql . $key . " = :" . $key;
+            }
+        };
+
+        error_log(print_r($db_columns['pass_hash'] , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        error_log(print_r($db_columns['institution'] , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        error_log(print_r($db_columns['login_num'] , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        error_log(print_r($db_columns['year'] , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        error_log(print_r($db_columns['month'] , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        $stmt = $pdo -> prepare("UPDATE mnsn_sheet_linebot_test $sql WHERE id = :id;");
+    }else{// 2回目以降の入力
+        // SQL文の生成
+        $len = count($db_columns);
+        $count = 0;
+        $sql_columns = "(";
+        $sql_data = "(";
+        foreach(array_keys($db_columns) as $key){
+            $count++;
+            if($len != $count){// 最後の要素ではないとき
+                $sql_columns = $sql_columns . $key . ", ";// カラム名の結合
+                $sql_data = $sql_data . ":" . $key . ", "; // データの結合
+            }else{
+                $sql_columns = $sql_columns . $key .")";
+                $sql_data = $sql_data . ":" . $key . ") ";
+            }
+        };
+
+        $stmt = $pdo -> prepare("INSERT INTO mnsn_sheet_linebot_test $sql_columns VALUES $sql_data");
+    }
+
+    // // パスワードだけ暗号化する
+    // // パスワードはカラムの最後なので，$db_columnsの最後だけ暗号化する
+    // $db_columns["password"] = encrypt_password($db_columns["password"]);// パスワードを暗号化
+    
+    foreach(array_keys($db_columns) as $key){
+        $stmt->bindValue(':'.$key , $db_columns[$key], PDO::PARAM_STR);
+    };
+
+    $stmt->execute(); // 実行
+};
+
 
 /** 送信した内容を暗号化した後DBに登録
  * 
  * 
  **/
-function insertTable_Encrypted($pass_encrypt, $formValue_institution,$formValue_login_num, $formValue_year, $formValue_month, $formValue_day) {
+function insertTable_Encrypted($pass_encrypt, $formValue_institution,$formValue_login_num, $formValue_year, $formValue_month, $formValue_day, $line_uid) {
 
     $pdo = connectMysql(); // 4行目で読み込んだファイルの関数（ connectMysql() ）を実行
 
@@ -106,8 +180,8 @@ function insertTable_Encrypted($pass_encrypt, $formValue_institution,$formValue_
 
     // 同じ内容が登録されていなければ以下の処理に入る
     $stmt = $pdo -> prepare("INSERT INTO
-    mnsn_sheet_linebot_test (pass_hash, institution, login_num, year, month, day )
-    VALUES (:pass_hash, :institution, :login_num, :year, :month, :day)");
+    mnsn_sheet_linebot_test (pass_hash, institution, login_num, year, month, day ,line_uid)
+    VALUES (:pass_hash, :institution, :login_num, :year, :month, :day, :line_uid)");
 
     
 
@@ -127,6 +201,7 @@ function insertTable_Encrypted($pass_encrypt, $formValue_institution,$formValue_
     $stmt->bindValue(':year', $formValue_year, PDO::PARAM_STR);
     $stmt->bindValue(':month', $formValue_month, PDO::PARAM_STR);
     $stmt->bindValue(':day', $formValue_day, PDO::PARAM_STR);
+    $stmt->bindValue(':line_uid', $line_uid, PDO::PARAM_STR);
 
     $stmt->execute(); // 実行
 
