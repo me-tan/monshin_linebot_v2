@@ -27,7 +27,7 @@ function call_chatGPT($prompt) {
     // 送るメッセージや使うモデルを設定
     // max_tokens 省略したらエラーが戻ってきたので入れといたほうがいいかも
     $postData = [
-        'model' => "gpt-3.5-turbo",
+        'model' => "gpt-4o",
         'messages' => [
             [
                 'role' => 'user',
