@@ -121,7 +121,7 @@ function main()
       $contents = $targetNum;
       putMessageLogMysql($sender, $text, $situation, $contents, $userId);
 
-      $text_gpt = target($text,$SearchAgain, $userId);
+      $text_gpt = target($text,$targetNum, $userId);
       
       $str_from_gpt = str_replace(array("\r\n", "\r", "\n"), "\n", $text_gpt);//改行コードを一つに統一
       $ary_from_gpt = explode("\n", $str_from_gpt);
@@ -278,7 +278,7 @@ function main()
       error_log(print_r($targetNum , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
       
       //チャットGPTを用いて目標を作る
-      $text_gpt = target($previousItem, $SearchAgain, $userId);
+      $text_gpt = target($previousItem, $targetNum, $userId);
       $str_from_gpt = str_replace(array("\r\n", "\r", "\n"), "\n", $text_gpt);//改行コードを一つに統一
       $ary_from_gpt = explode("\n", $str_from_gpt);
       error_log(print_r($ary_from_gpt , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
@@ -914,18 +914,20 @@ function main()
   }
 }
 
-function target($text, $SearchAgain, $userId) {
+function target($text, $targetNum, $userId) {
   // $pass_encrypt = main_backend();
   $pdo = connectMysql(); // DBとの接続開始
   $stmt = $pdo->prepare("SELECT * FROM mnsn_sheet_linebot_test where :line_uid = line_uid ORDER BY id DESC");
   $stmt->bindValue(':line_uid', $userId, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
   $stmt->execute();
   $all = $stmt->fetchAll(PDO::FETCH_ASSOC); //全件取得
+  error_log(print_r('データベースから問診票の内容を取得' , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
     if($text == '運動を改善したい！'){
       $stmt2 = $pdo->prepare("INSERT INTO exercise_management (pass_hash, age, task, task_walk, commute, commuteTime, job_pedometerYes, holiday_pedometerYes, job_pedometerNo, holiday_pedometerNo, walkNum, walkCareer, gender, walkDayOfWeek, otherMotion, otherMotionFreq, OtherwalkCareer, otherMotionDayOfWeek, strongPoint, shortcoming, line_uid) SELECT pass_hash, age, task, task_walk, commute, commuteTime, job_pedometerYes, holiday_pedometerYes, job_pedometerNo, holiday_pedometerNo, walkNum, walkCareer, gender, walkDayOfWeek, otherMotion, otherMotionFreq, OtherwalkCareer, otherMotionDayOfWeek, strongPoint, shortcoming, line_uid FROM mnsn_sheet_linebot_test where :line_uid = line_uid ORDER BY id DESC");
       $stmt2->bindValue(':line_uid', $userId, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
       $stmt2->execute();
+      error_log(print_r("インサートしました" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
       $pass_hash = (string)$all[0]["pass_hash"];
       $age = (string)$all[0]["age"];
@@ -972,6 +974,7 @@ function target($text, $SearchAgain, $userId) {
       $stmt2 = $pdo->prepare("INSERT INTO smoking_management (pass_hash,age,gender,tabacco,tabaccoNum,tabaccoYear,tabaccoQuitNum,tabaccoQuitYear,strongPoint,shortcoming, line_uid) SELECT pass_hash,age,gender,tabacco,tabaccoNum,tabaccoYear,tabaccoQuitNum,tabaccoQuitYear,strongPoint,shortcoming, line_uid FROM mnsn_sheet_linebot_test where :line_uid = line_uid ORDER BY id DESC");
       $stmt2->bindValue(':line_uid', $userId, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
       $stmt2->execute();
+      error_log(print_r("インサートしました" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
 
       $pass_hash = (string)$all[0]["pass_hash"];
@@ -1174,6 +1177,26 @@ function target($text, $SearchAgain, $userId) {
       $message = $message . "長所は" . $strongPoint . ".";
 
     }
+    //ラインIDから同じ内容のデータが複数個保存されていないかを確認＆複数ある場合は最新のデータを保存して古いデータは削除
+    // 最新のレコードを特定します。
+    $latestRecordStmt = $pdo->prepare("SELECT id FROM " . $targetNum . " WHERE line_uid = :line_uid ORDER BY id DESC LIMIT 1");
+    $latestRecordStmt->bindValue(':line_uid', $userId, PDO::PARAM_STR);
+    $latestRecordStmt->execute();
+    $latestRecordId = $latestRecordStmt->fetchColumn();
+
+    if ($latestRecordId) {
+        // 最新のレコード以外のレコードを削除します。
+        $deleteStmt = $pdo->prepare("DELETE FROM " . $targetNum . " WHERE line_uid = :line_uid AND id != :latest_id");
+        $deleteStmt->bindValue(':line_uid', $userId, PDO::PARAM_STR);
+        $deleteStmt->bindValue(':latest_id', $latestRecordId, PDO::PARAM_INT);
+        $deleteStmt->execute();
+
+        error_log(print_r("Deleted old records for line_uid: $userId" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+    } else {
+        error_log(print_r("No records found for line_uid: $userId" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+    }
+
+
     $message_from_gpt = call_chatGPT($message); // GPTにプロンプトを送信
   // }
   return $message_from_gpt;

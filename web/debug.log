@@ -1,554 +1,67 @@
-Array
+user
+運動を改善したい！
+choose_improvement_item
+exercise_management
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
 (
-    [0] => Array
-        (
-            [user] => あなた
-            [point] => 2
-            [rank] => 1
-        )
-
-    [1] => Array
-        (
-            [user] => ユーザ1
-            [point] => 2
-            [rank] => 1
-        )
-
-    [2] => Array
-        (
-            [user] => ユーザ2
-            [point] => 2
-            [rank] => 1
-        )
-
-    [3] => Array
-        (
-            [user] => ユーザ6
-            [point] => 2
-            [rank] => 1
-        )
-
-    [4] => Array
-        (
-            [user] => ユーザ8
-            [point] => 2
-            [rank] => 1
-        )
-
-    [5] => Array
-        (
-            [user] => ユーザ4
-            [point] => 1
-            [rank] => 6
-        )
-
-    [6] => Array
-        (
-            [user] => ユーザ7
-            [point] => 1
-            [rank] => 6
-        )
-
-    [7] => Array
-        (
-            [user] => ユーザ9
-            [point] => 1
-            [rank] => 6
-        )
-
-    [8] => Array
-        (
-            [user] => ユーザ3
-            [point] => 0
-            [rank] => 9
-        )
-
-    [9] => Array
-        (
-            [user] => ユーザ5
-            [point] => 0
-            [rank] => 9
-        )
-
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
 )
 
-Array
+データベースから問診票の内容を取得
+user
+運動を改善したい！
+choose_improvement_item
+exercise_management
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
 (
-    [user] => あなた
-    [point] => 2
-    [rank] => 1
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
 )
 
-ランキングの詳細
-1
-上はデイ2ランク
+データベースから問診票の内容を取得
+インサートしました
+15
 Array
 (
-    [user] => ユーザ1
-    [point] => 2
-    [rank] => 1
+    [0] => 1. 毎日30分間のウォーキングをする。
+    [1] => 2. 毎日少なくとも10分間のストレッチをする。
+    [2] => 3. 毎日階段を使い、一日に合計5000歩を目指す。
+    [3] => 4. 毎日寝る前に軽い筋力トレーニング（スクワットやプランクなど）を5分間行う。
 )
 
-ランキングの詳細
-1
-上はデイ2ランク
-1位と2位を決定
-2位を決定
-Array
+5
+LINE Bot
+a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:50:"1. 毎日30分間のウォーキングをする。";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:62:"2. 毎日少なくとも10分間のストレッチをする。";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:64:"3. 毎日階段を使い、一日に合計5000歩を目指す。";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:112:"4. 毎日寝る前に軽い筋力トレーニング（スクワットやプランクなど）を5分間行う。";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
+show targets
+a:4:{i:0;s:50:"1. 毎日30分間のウォーキングをする。";i:1;s:62:"2. 毎日少なくとも10分間のストレッチをする。";i:2;s:64:"3. 毎日階段を使い、一日に合計5000歩を目指す。";i:3;s:112:"4. 毎日寝る前に軽い筋力トレーニング（スクワットやプランクなど）を5分間行う。";}
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
 (
-    [user] => ユーザ2
-    [point] => 2
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-1位と2位を決定
-Array
-(
-    [user] => ユーザ6
-    [point] => 2
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-1位と2位を決定
-全部決まったからあとは3位に
-Array
-(
-    [user] => ユーザ8
-    [point] => 2
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-1位と2位を決定
-全部決まったからあとは3位に
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-Array
-(
-    [0] => ユーザ4
-    [1] => ユーザ7
-    [2] => ユーザ9
-)
-
-
-選ばれたユーザが複数人の時のユーザ名
-
-選ばれたユーザが複数人の時のユーザ名
-
-選ばれたユーザが複数人の時のユーザ名
-Array
-(
-    [0] => Array
-        (
-            [user] => あなた
-            [point] => 2
-            [rank] => 1
-        )
-
-    [1] => Array
-        (
-            [user] => ユーザ1
-            [point] => 2
-            [rank] => 1
-        )
-
-    [2] => Array
-        (
-            [user] => ユーザ2
-            [point] => 2
-            [rank] => 1
-        )
-
-    [3] => Array
-        (
-            [user] => ユーザ6
-            [point] => 2
-            [rank] => 1
-        )
-
-    [4] => Array
-        (
-            [user] => ユーザ8
-            [point] => 2
-            [rank] => 1
-        )
-
-    [5] => Array
-        (
-            [user] => ユーザ4
-            [point] => 2
-            [rank] => 1
-        )
-
-    [6] => Array
-        (
-            [user] => ユーザ7
-            [point] => 2
-            [rank] => 1
-        )
-
-    [7] => Array
-        (
-            [user] => ユーザ9
-            [point] => 2
-            [rank] => 1
-        )
-
-    [8] => Array
-        (
-            [user] => ユーザ3
-            [point] => 2
-            [rank] => 1
-        )
-
-    [9] => Array
-        (
-            [user] => ユーザ5
-            [point] => 2
-            [rank] => 1
-        )
-
-)
-
-Array
-(
-    [0] => Array
-        (
-            [user] => あなた
-            [point] => 2
-            [rank] => 1
-        )
-
-    [1] => Array
-        (
-            [user] => ユーザ1
-            [point] => 2
-            [rank] => 1
-        )
-
-    [2] => Array
-        (
-            [user] => ユーザ2
-            [point] => 2
-            [rank] => 1
-        )
-
-    [3] => Array
-        (
-            [user] => ユーザ6
-            [point] => 2
-            [rank] => 1
-        )
-
-    [4] => Array
-        (
-            [user] => ユーザ8
-            [point] => 2
-            [rank] => 1
-        )
-
-    [5] => Array
-        (
-            [user] => ユーザ4
-            [point] => 1
-            [rank] => 6
-        )
-
-    [6] => Array
-        (
-            [user] => ユーザ7
-            [point] => 1
-            [rank] => 6
-        )
-
-    [7] => Array
-        (
-            [user] => ユーザ9
-            [point] => 1
-            [rank] => 6
-        )
-
-    [8] => Array
-        (
-            [user] => ユーザ3
-            [point] => 0
-            [rank] => 9
-        )
-
-    [9] => Array
-        (
-            [user] => ユーザ5
-            [point] => 0
-            [rank] => 9
-        )
-
-)
-
-Array
-(
-    [user] => あなた
-    [point] => 2
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-Array
-(
-    [user] => ユーザ1
-    [point] => 2
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-1位と2位を決定
-Array
-(
-    [user] => ユーザ2
-    [point] => 2
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-1位と2位を決定
-2位を決定
-Array
-(
-    [user] => ユーザ6
-    [point] => 2
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-1位と2位を決定
-Array
-(
-    [user] => ユーザ8
-    [point] => 2
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-1位と2位を決定
-全部決まったからあとは3位に
-Array
-(
-    [user] => ユーザ4
-    [point] => 1
-    [rank] => 6
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-Array
-(
-    [user] => ユーザ7
-    [point] => 1
-    [rank] => 6
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-Array
-(
-    [user] => ユーザ9
-    [point] => 1
-    [rank] => 6
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-Array
-(
-    [user] => ユーザ3
-    [point] => 0
-    [rank] => 9
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-Array
-(
-    [user] => ユーザ5
-    [point] => 0
-    [rank] => 9
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-Array
-(
-    [user] => あなた
-    [point] => 2
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-Array
-(
-    [user] => ユーザ1
-    [point] => 2
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-1位と2位を決定
-Array
-(
-    [user] => ユーザ2
-    [point] => 1
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-Array
-(
-    [user] => ユーザ6
-    [point] => 2
-    [rank] => 1
-)
-
-ランキングの詳細
-1
-上はデイ2ランク
-1位と2位を決定
-全部決まったからあとは3位に
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-1位と2位以外を決定
-Array
-(
-    [0] => ユーザ4
-    [1] => ユーザ7
-    [2] => ユーザ9
-)
-
-ユーザ4
-選ばれたユーザが複数人の時のユーザ名
-ユーザ7
-選ばれたユーザが複数人の時のユーザ名
-ユーザ9
-選ばれたユーザが複数人の時のユーザ名
-Array
-(
-    [0] => Array
-        (
-            [user] => ユーザ1
-            [point] => 4
-            [rank] => 1
-        )
-
-    [1] => Array
-        (
-            [user] => ユーザ2
-            [point] => 3
-            [rank] => 2
-        )
-
-    [2] => Array
-        (
-            [user] => あなた
-            [point] => 2
-            [rank] => 3
-        )
-
-    [3] => Array
-        (
-            [user] => ユーザ6
-            [point] => 2
-            [rank] => 3
-        )
-
-    [4] => Array
-        (
-            [user] => ユーザ8
-            [point] => 2
-            [rank] => 3
-        )
-
-    [5] => Array
-        (
-            [user] => ユーザ4
-            [point] => 2
-            [rank] => 3
-        )
-
-    [6] => Array
-        (
-            [user] => ユーザ7
-            [point] => 2
-            [rank] => 3
-        )
-
-    [7] => Array
-        (
-            [user] => ユーザ9
-            [point] => 2
-            [rank] => 3
-        )
-
-    [8] => Array
-        (
-            [user] => ユーザ3
-            [point] => 0
-            [rank] => 9
-        )
-
-    [9] => Array
-        (
-            [user] => ユーザ5
-            [point] => 0
-            [rank] => 9
-        )
-
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
 )
 
 user
-こんにちは
-send_something
+一番目を選択します！
+choose_target
 
 U617d82dabafc7d59de5834bd918674b1
 13.6
@@ -557,8 +70,39 @@ U617d82dabafc7d59de5834bd918674b1
 13.9
 13.10
 13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+PDOStatement Object
+(
+    [queryString] => SELECT target FROM exercise_management WHERE :line_uid = line_uid ORDER BY id DESC
+)
+
+Array
+(
+    [target] => a:4:{i:0;s:50:"1. 毎日30分間のウォーキングをする。";i:1;s:62:"2. 毎日少なくとも10分間のストレッチをする。";i:2;s:64:"3. 毎日階段を使い、一日に合計5000歩を目指す。";i:3;s:112:"4. 毎日寝る前に軽い筋力トレーニング（スクワットやプランクなど）を5分間行う。";}
+)
+
+LINE Bot
+目標を設定しました. 「1. 毎日30分間のウォーキングをする。」を目標にこれから頑張りましょう！
+set_target
+
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
 user
-こんにちは
+タバコを改善したい！
 send_something
 
 U617d82dabafc7d59de5834bd918674b1
@@ -574,56 +118,8 @@ PDOStatement Object
 )
 
 LINE Bot
-こんにちは
+タバコを改善したい！
 not_defined_message
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-user
-問診票を記入しました！
-requirement_of_check_of_user_id
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-LINE Bot
-改善したい生活習慣病の項目を選択してください！
-requirement_of_choose_improvement_item
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-LINE Bot
-a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:7:{i:0;a:3:{s:4:"type";s:6:"bubble";s:4:"body";a:3:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:2:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:15:"運動を改善";s:4:"text";s:27:"運動を改善したい！";}}}}s:4:"size";s:4:"deca";}i:1;a:3:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"deca";s:4:"body";a:3:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:2:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:18:"タバコを改善";s:4:"text";s:39:"タバコに関して改善したい！";}}}}}i:2;a:3:{s:4:"type";s:6:"bubble";s:4:"body";a:3:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:2:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:15:"お酒を改善";s:4:"text";s:36:"お酒に関して改善したい！";}}}}s:4:"size";s:4:"deca";}i:3;a:3:{s:4:"type";s:6:"bubble";s:4:"body";a:3:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:2:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:15:"間食を改善";s:4:"text";s:27:"間食を改善したい！";}}}}s:4:"size";s:4:"deca";}i:4;a:3:{s:4:"type";s:6:"bubble";s:4:"body";a:3:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:2:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:15:"朝食を改善";s:4:"text";s:27:"朝食を改善したい！";}}}}s:4:"size";s:4:"deca";}i:5;a:3:{s:4:"type";s:6:"bubble";s:4:"body";a:3:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:2:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:15:"睡眠を改善";s:4:"text";s:27:"睡眠を改善したい！";}}}}s:4:"size";s:4:"deca";}i:6;a:3:{s:4:"type";s:6:"bubble";s:4:"body";a:3:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:2:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:15:"肥満を改善";s:4:"text";s:27:"肥満を改善したい！";}}}}s:4:"size";s:4:"deca";}}}}
-flexMessage_of_choose_improvement_item
 
 U617d82dabafc7d59de5834bd918674b1
 13.6
@@ -653,90 +149,24 @@ PDOStatement Object
     [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
 )
 
+データベースから問診票の内容を取得
+インサートしました
 15
 Array
 (
-    [0] => - 毎日タバコを１本も吸わない
-    [1] => - 毎日運動して、タバコを吸いたくない状態を作る
-    [2] => - 毎日水分をしっかり摂取し、タバコの代わりに口に物を持つ習慣を変える
-    [3] => - 毎日ストレスを管理し、タバコを吸いたくなる状況を避ける
+    [0] => 申し訳ありませんが、提供されたデータは十分ではありません。ただし、「生活習慣病対策のためのタバコに関する目標」で、一般的なものを考えることは可能です。以下の4つの目標をお答えします。
+    [1] => 
+    [2] => - 毎日タバコの本数を1本減らす。
+    [3] => - 毎日禁煙のためのアプリをチェックする。
+    [4] => - 毎日禁煙をサポートする人と話す。
+    [5] => - 毎日タバコを吸いたいと思った時は5分間深呼吸を行う。
 )
 
 5
 LINE Bot
-a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:41:"- 毎日タバコを１本も吸わない";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:68:"- 毎日運動して、タバコを吸いたくない状態を作る";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:101:"- 毎日水分をしっかり摂取し、タバコの代わりに口に物を持つ習慣を変える";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:83:"- 毎日ストレスを管理し、タバコを吸いたくなる状況を避ける";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
+a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:271:"申し訳ありませんが、提供されたデータは十分ではありません。ただし、「生活習慣病対策のためのタバコに関する目標」で、一般的なものを考えることは可能です。以下の4つの目標をお答えします。";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:0:"";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:45:"- 毎日タバコの本数を1本減らす。";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:59:"- 毎日禁煙のためのアプリをチェックする。";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
 show targets
-a:4:{i:0;s:41:"- 毎日タバコを１本も吸わない";i:1;s:68:"- 毎日運動して、タバコを吸いたくない状態を作る";i:2;s:101:"- 毎日水分をしっかり摂取し、タバコの代わりに口に物を持つ習慣を変える";i:3;s:83:"- 毎日ストレスを管理し、タバコを吸いたくなる状況を避ける";}
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-user
-三番目を選択します！
-choose_target
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-PDOStatement Object
-(
-    [queryString] => SELECT target FROM smoking_management WHERE :line_uid = line_uid ORDER BY id DESC
-)
-
-
-LINE Bot
-目標を設定しました. 「」を目標にこれから頑張りましょう！
-set_target
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-user
-わだにゃん
-requirement_of_check_of_user_id
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-LINE Bot
-U617d82dabafc7d59de5834bd918674b1
-replay_user_id
-
+a:6:{i:0;s:271:"申し訳ありませんが、提供されたデータは十分ではありません。ただし、「生活習慣病対策のためのタバコに関する目標」で、一般的なものを考えることは可能です。以下の4つの目標をお答えします。";i:1;s:0:"";i:2;s:45:"- 毎日タバコの本数を1本減らす。";i:3;s:59:"- 毎日禁煙のためのアプリをチェックする。";i:4;s:50:"- 毎日禁煙をサポートする人と話す。";i:5;s:78:"- 毎日タバコを吸いたいと思った時は5分間深呼吸を行う。";}
 U617d82dabafc7d59de5834bd918674b1
 13.6
 13.7
@@ -765,20 +195,24 @@ PDOStatement Object
     [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
 )
 
+データベースから問診票の内容を取得
+インサートしました
 15
 Array
 (
-    [0] => - 毎日タバコを吸わない
-    [1] => - 毎日タバコを吸う本数を減らす
-    [2] => - 毎日代替物を使用してタバコを吸わないようにする
-    [3] => - 毎日禁煙をサポートするアプリやグループに参加する
+    [0] => 申し訳ありませんが、具体的な生活習慣に関する詳細が不足しているため、汎用的なタバコに関する目標を提示します。
+    [1] => 
+    [2] => - 毎日タバコを1本減らす。
+    [3] => - 毎日タバコを吸う時間を決め、それを守る。
+    [4] => - 毎日喫煙しない時間を10分延ばす。
+    [5] => - 毎日タバコの代わりにガムを噛む。
 )
 
 5
 LINE Bot
-a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:32:"- 毎日タバコを吸わない";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:44:"- 毎日タバコを吸う本数を減らす";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:71:"- 毎日代替物を使用してタバコを吸わないようにする";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:74:"- 毎日禁煙をサポートするアプリやグループに参加する";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
+a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:162:"申し訳ありませんが、具体的な生活習慣に関する詳細が不足しているため、汎用的なタバコに関する目標を提示します。";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:0:"";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:36:"- 毎日タバコを1本減らす。";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:62:"- 毎日タバコを吸う時間を決め、それを守る。";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
 show targets
-a:4:{i:0;s:32:"- 毎日タバコを吸わない";i:1;s:44:"- 毎日タバコを吸う本数を減らす";i:2;s:71:"- 毎日代替物を使用してタバコを吸わないようにする";i:3;s:74:"- 毎日禁煙をサポートするアプリやグループに参加する";}
+a:6:{i:0;s:162:"申し訳ありませんが、具体的な生活習慣に関する詳細が不足しているため、汎用的なタバコに関する目標を提示します。";i:1;s:0:"";i:2;s:36:"- 毎日タバコを1本減らす。";i:3;s:62:"- 毎日タバコを吸う時間を決め、それを守る。";i:4;s:49:"- 毎日喫煙しない時間を10分延ばす。";i:5;s:50:"- 毎日タバコの代わりにガムを噛む。";}
 U617d82dabafc7d59de5834bd918674b1
 13.6
 13.7
@@ -792,9 +226,9 @@ PDOStatement Object
 )
 
 user
-他の目標を見たいです！
-requirement_of_check_other_target
-
+タバコに関して改善したい！
+choose_improvement_item
+smoking_management
 U617d82dabafc7d59de5834bd918674b1
 13.6
 13.7
@@ -807,21 +241,27 @@ PDOStatement Object
     [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
 )
 
-タバコに関して改善したい！
-smoking_management
+データベースから問診票の内容を取得
+インサートしました
+Deleted old records for line_uid: U617d82dabafc7d59de5834bd918674b1
 15
 Array
 (
-    [0] => 1. 毎日タバコを吸う本数を減らす
-    [1] => 2. 毎日タバコを吸う時間を減らす
-    [2] => 3. 毎日タバコを吸う前に運動をする
-    [3] => 4. 毎日タバコを吸う代わりに健康的な飲み物を摂る
+    [0] => すみませんが、データが不十分で具体的な提案が難しいです。ただし、一般的なタバコに関する生活習慣病対策の目標を挙げることができます。
+    [1] => 
+    [2] => 1. 毎日起床後すぐに深呼吸を10回行う。
+    [3] => 2. 毎日1時間ごとに水を一杯飲む。
+    [4] => 3. 毎日時刻を決めて禁煙アプリを利用して進捗を確認する。
+    [5] => 4. 毎日寝る前にリラックスするためのストレッチを5分行う。
+    [6] => 
+    [7] => これらの目標をぜひ参考にしてみてください。
 )
 
+5
 LINE Bot
-a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:45:"1. 毎日タバコを吸う本数を減らす";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:45:"2. 毎日タバコを吸う時間を減らす";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:48:"3. 毎日タバコを吸う前に運動をする";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:69:"4. 毎日タバコを吸う代わりに健康的な飲み物を摂る";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
+a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:195:"すみませんが、データが不十分で具体的な提案が難しいです。ただし、一般的なタバコに関する生活習慣病対策の目標を挙げることができます。";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:0:"";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:53:"1. 毎日起床後すぐに深呼吸を10回行う。";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:46:"2. 毎日1時間ごとに水を一杯飲む。";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
 show targets
-a:4:{i:0;s:45:"1. 毎日タバコを吸う本数を減らす";i:1;s:45:"2. 毎日タバコを吸う時間を減らす";i:2;s:48:"3. 毎日タバコを吸う前に運動をする";i:3;s:69:"4. 毎日タバコを吸う代わりに健康的な飲み物を摂る";}
+a:8:{i:0;s:195:"すみませんが、データが不十分で具体的な提案が難しいです。ただし、一般的なタバコに関する生活習慣病対策の目標を挙げることができます。";i:1;s:0:"";i:2;s:53:"1. 毎日起床後すぐに深呼吸を10回行う。";i:3;s:46:"2. 毎日1時間ごとに水を一杯飲む。";i:4;s:81:"3. 毎日時刻を決めて禁煙アプリを利用して進捗を確認する。";i:5;s:82:"4. 毎日寝る前にリラックスするためのストレッチを5分行う。";i:6;s:0:"";i:7;s:63:"これらの目標をぜひ参考にしてみてください。";}
 U617d82dabafc7d59de5834bd918674b1
 13.6
 13.7
@@ -835,7 +275,101 @@ PDOStatement Object
 )
 
 user
-四番目を選択します！
+タバコに関して改善したい！
+choose_improvement_item
+smoking_management
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+データベースから問診票の内容を取得
+インサートしました
+Deleted old records for line_uid: U617d82dabafc7d59de5834bd918674b1
+15
+Array
+(
+    [0] => 申し訳ありませんが、いただいたデータが不完全であり、具体的な目標を考えることが難しいです。タバコに関する一般的な目標をいくつか提示させていただきます。
+    [1] => 
+    [2] => - 毎日決まった時間にタバコを吸う回数を1本減らす。
+    [3] => - 毎日タバコを吸わない時間を1時間増やす。
+    [4] => - 毎日タバコを吸ったくなったときに代替行動（深呼吸、ガムを噛むなど）を取る。
+    [5] => - 毎日タバコを吸った本数を記録し、日々の本数を意識する。
+    [6] => 
+    [7] => 具体的なデータが提供されれば、さらに適切で個別の目標を設定することが可能です。
+)
+
+5
+LINE Bot
+a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:225:"申し訳ありませんが、いただいたデータが不完全であり、具体的な目標を考えることが難しいです。タバコに関する一般的な目標をいくつか提示させていただきます。";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:0:"";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:72:"- 毎日決まった時間にタバコを吸う回数を1本減らす。";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:60:"- 毎日タバコを吸わない時間を1時間増やす。";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
+show targets
+a:8:{i:0;s:225:"申し訳ありませんが、いただいたデータが不完全であり、具体的な目標を考えることが難しいです。タバコに関する一般的な目標をいくつか提示させていただきます。";i:1;s:0:"";i:2;s:72:"- 毎日決まった時間にタバコを吸う回数を1本減らす。";i:3;s:60:"- 毎日タバコを吸わない時間を1時間増やす。";i:4;s:113:"- 毎日タバコを吸ったくなったときに代替行動（深呼吸、ガムを噛むなど）を取る。";i:5;s:83:"- 毎日タバコを吸った本数を記録し、日々の本数を意識する。";i:6;s:0:"";i:7;s:117:"具体的なデータが提供されれば、さらに適切で個別の目標を設定することが可能です。";}
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+user
+運動を改善したい！
+choose_improvement_item
+exercise_management
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+データベースから問診票の内容を取得
+インサートしました
+Deleted old records for line_uid: U617d82dabafc7d59de5834bd918674b1
+15
+Array
+(
+    [0] => - 毎日20分程度の散歩をする
+    [1] => - 毎日ストレッチを10分間行う
+    [2] => - 毎日階段を使う（エレベーターやエスカレーターではなく）
+    [3] => - 毎日スクワットを3セット行う
+)
+
+5
+LINE Bot
+a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:37:"- 毎日20分程度の散歩をする";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:40:"- 毎日ストレッチを10分間行う";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:83:"- 毎日階段を使う（エレベーターやエスカレーターではなく）";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:42:"- 毎日スクワットを3セット行う";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
+show targets
+a:4:{i:0;s:37:"- 毎日20分程度の散歩をする";i:1;s:40:"- 毎日ストレッチを10分間行う";i:2;s:83:"- 毎日階段を使う（エレベーターやエスカレーターではなく）";i:3;s:42:"- 毎日スクワットを3セット行う";}
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+user
+一番目を選択します！
 choose_target
 
 U617d82dabafc7d59de5834bd918674b1
@@ -852,175 +386,17 @@ PDOStatement Object
 
 PDOStatement Object
 (
-    [queryString] => SELECT target FROM smoking_management WHERE :line_uid = line_uid ORDER BY id DESC
+    [queryString] => SELECT target FROM exercise_management WHERE :line_uid = line_uid ORDER BY id DESC
 )
 
 Array
 (
-    [target] => a:4:{i:0;s:45:"1. 毎日タバコを吸う本数を減らす";i:1;s:45:"2. 毎日タバコを吸う時間を減らす";i:2;s:48:"3. 毎日タバコを吸う前に運動をする";i:3;s:69:"4. 毎日タバコを吸う代わりに健康的な飲み物を摂る";}
+    [target] => a:4:{i:0;s:37:"- 毎日20分程度の散歩をする";i:1;s:40:"- 毎日ストレッチを10分間行う";i:2;s:83:"- 毎日階段を使う（エレベーターやエスカレーターではなく）";i:3;s:42:"- 毎日スクワットを3セット行う";}
 )
 
 LINE Bot
-目標を設定しました. 「4. 毎日タバコを吸う代わりに健康的な飲み物を摂る」を目標にこれから頑張りましょう！
+目標を設定しました. 「- 毎日20分程度の散歩をする」を目標にこれから頑張りましょう！
 set_target
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-user
-おはよう
-send_something
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-LINE Bot
-おはよう
-not_defined_message
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-user
-継続の確認がしたい！！
-requirement_of_check_keeping
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-LINE Bot
-継続の確認を行います
-check_keeping_message
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-LINE Bot
-a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:6:"header";a:6:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:6:{s:4:"type";s:4:"text";s:4:"text";s:42:"今日は目標達成できましたか？";s:5:"align";s:6:"center";s:4:"size";s:2:"lg";s:7:"gravity";s:6:"center";s:8:"position";s:8:"relative";}}s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:6:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:3:"box";s:6:"layout";s:10:"horizontal";s:8:"contents";a:2:{i:0;a:11:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:6:"はい";s:4:"text";s:18:"できました！";}s:5:"style";s:7:"primary";s:5:"color";s:7:"#f7082f";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:6:"height";s:2:"md";s:7:"scaling";b:1;s:10:"adjustMode";s:13:"shrink-to-fit";s:11:"offsetStart";s:2:"xs";s:9:"offsetEnd";s:4:"none";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:9:"いいえ";s:4:"text";s:24:"できませんでした";}s:5:"style";s:7:"primary";s:5:"color";s:7:"#1b08f7";}}s:4:"flex";i:1;s:7:"spacing";s:2:"md";}}s:7:"spacing";s:2:"lg";s:10:"paddingAll";s:4:"12px";s:11:"borderWidth";s:5:"light";}s:6:"styles";a:1:{s:6:"footer";a:1:{s:9:"separator";b:0;}}}}}}
-check_keeping_flexMessage
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-user
-できました！
-report_of_what_was_done
-
-U617d82dabafc7d59de5834bd918674b1
-13.6
-13.7
-13.8
-13.9
-13.10
-13.11
-PDOStatement Object
-(
-    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
-)
-
-PDOStatement Object
-(
-    [queryString] => SELECT keep_days FROM smoking_management WHERE :line_uid = line_uid ORDER BY id DESC
-)
-
-Array
-(
-    [keep_days] => 0
-)
-
-PDOStatement Object
-(
-    [queryString] => SELECT day_num FROM smoking_management WHERE :line_uid = line_uid ORDER BY id DESC
-)
-
-Array
-(
-    [day_num] => 0
-)
-
-PDOStatement Object
-(
-    [queryString] => SELECT week_num FROM smoking_management WHERE :line_uid = line_uid ORDER BY id DESC
-)
-
-Array
-(
-    [week_num] => 0
-)
-
-weekNumを抽出しました
-PDOStatement Object
-(
-    [queryString] => SELECT week_keep_num FROM smoking_management WHERE :line_uid = line_uid ORDER BY id DESC
-)
-
-Array
-(
-    [week_keep_num] => 0
-)
-
-weekKeepNumを抽出しました
-15
-3
-9
-12
-LINE Bot
-素晴らしいですね！生活習慣病の改善に向けて、1日も継続されたことを心から讃えます。自分自身をよく見つめ、努力を惜しまず取り組む姿勢は本当に素晴らしいです。今日もその気持ちを持ち続け、自身の健康を大切にしてください。あなたの取り組みが将来の健康に繋がることを信じています！
-evaluation_and_words_of_praise
 
 U617d82dabafc7d59de5834bd918674b1
 13.6
