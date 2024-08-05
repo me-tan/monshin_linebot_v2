@@ -210,10 +210,7 @@ function getLatestSituation($pass_encrypt) {
   $stmt->execute();
   $result = $stmt->fetch(PDO::FETCH_ASSOC); //全件取得
   // ============= ここまでDBからの取得 =============
-<<<<<<< HEAD
-=======
   error_log(print_r($result , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
->>>>>>> change_system_to_now_system
   return $result;
 }
 
