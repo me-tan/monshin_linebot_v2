@@ -12,6 +12,7 @@ $channel_secret = getenv('CHANNEL_SECRET');
 
 
 require('./backend.php');
+// require('./flexMessage.php');
 //require ('./chatapi.php');
 
 function sendMessage($post_data)
@@ -831,20 +832,33 @@ function main()
         $text = $event["message"]["text"]; // メッセージテキスト
         // $text = "テスト！";
 
+        //ログを残す前に，ユーザ名の入力を要求していたか確認
+        $situation_log = getLatestSituation($userId)['situation'];
+        error_log(print_r($situation_log , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+
         //メッセージのログを残す
         $situation = "send_something";
         putMessageLogMysql($sender, $text, $situation, $contents, $userId);
 
-        $situation_log = getLatestSituation($userId);
+        //ログから改善項目を習得
+        $situation = "choose_improvement_item";
+        $targetNum = getTargetMysql($situation, $userId)[0]['contents'];
+
 
         if($situation_log == "requirement_of_userName"){
-          
-        }
+          $setWord = $text;
+          $section = "userName";
+          updateOneMysql($setWord,$targetNum, $section, $userId);
 
-        // $text = main_backend();
-        $logMessage = $text;
-        $messages . array_push($messages, ["type" => "text", "text" => $text]); // 適当にオウム返し
-        $situation = "not_defined_message";
+          $message = "ユーザ名を「". $text . "」に設定しました！";
+          $logMessage = $message;
+          $messages . array_push($messages, ["type" => "text", "text" => $message]); // 適当にオウム返し
+          $situation = "set_userName";
+        }else{
+          $logMessage = $text;
+          $messages . array_push($messages, ["type" => "text", "text" => $text]); // 適当にオウム返し
+          $situation = "not_defined_message";
+        }
 
       } else if ($type == "sticker") { // メッセージがスタンプのとき
         $messages . array_push($messages, ["type" => "sticker", "packageId" => "446", "stickerId" => "1988"]); // 適当なステッカーを返す
