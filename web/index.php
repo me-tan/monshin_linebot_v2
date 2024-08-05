@@ -814,25 +814,44 @@ function main()
       $logMessage = $message;
       $messages . array_push($messages, ["type" => "text", "text" => $message]); // 適当にオウム返し
       $situation = "replay_user_id";
-    }else if($type == "text") { // メッセージがテキストのとき
-      // $text = $event->{"message"}->{"text"}; // ユーザから送信されたメッセージテキスト
-      $text = $event["message"]["text"]; // メッセージテキスト
-      // $text = "テスト！";
-
-      //メッセージのログを残す
-      $situation = "send_something";
+    }else if ($text == "ユーザ名を設定したい！"){
+      $situation = "require_of_set_userName";
+      $logMessage = $text;
       putMessageLogMysql($sender, $text, $situation, $contents, $userId);
 
-      // $text = main_backend();
-      $logMessage = $text;
-      $messages . array_push($messages, ["type" => "text", "text" => $text]); // 適当にオウム返し
-      $situation = "not_defined_message";
+      
+      $message =  "ユーザ名を入力してください！";
+      $logMessage = $message;
+      $messages . array_push($messages, ["type" => "text", "text" => $message]); // ユーザ名を入力してくださいと返す
+      $situation = "requirement_of_userName";
 
-    } else if ($type == "sticker") { // メッセージがスタンプのとき
-      $messages . array_push($messages, ["type" => "sticker", "packageId" => "446", "stickerId" => "1988"]); // 適当なステッカーを返す
+    }else{
+      if($type == "text") { // メッセージがテキストのとき
+        // $text = $event->{"message"}->{"text"}; // ユーザから送信されたメッセージテキスト
+        $text = $event["message"]["text"]; // メッセージテキスト
+        // $text = "テスト！";
 
-    } else { // その他は無視．必要に応じて追加．
+        //メッセージのログを残す
+        $situation = "send_something";
+        putMessageLogMysql($sender, $text, $situation, $contents, $userId);
+
+        $situation_log = getLatestSituation($userId);
+
+        if($situation_log == "requirement_of_userName"){
+          
+        }
+
+        // $text = main_backend();
+        $logMessage = $text;
+        $messages . array_push($messages, ["type" => "text", "text" => $text]); // 適当にオウム返し
+        $situation = "not_defined_message";
+
+      } else if ($type == "sticker") { // メッセージがスタンプのとき
+        $messages . array_push($messages, ["type" => "sticker", "packageId" => "446", "stickerId" => "1988"]); // 適当なステッカーを返す
+
+      } else { // その他は無視．必要に応じて追加．
       return;
+      }
     }
     $sender = "LINE Bot";
     if ($count == 1){
