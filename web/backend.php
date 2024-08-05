@@ -203,4 +203,14 @@ function updateOneMysql($keepDay,$targetNum, $item, $pass_encrypt) {
   // ============= ここまでDBからの取得 =============
 }
 
+function getLatestSituation($pass_encrypt) {
+  $pdo = connectMysql(); // DBとの接続開始
+  $stmt = $pdo->prepare("SELECT situation FROM message_log WHERE :line_uid = line_uid ORDER BY id DESC LIMIT 1");
+  $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  $stmt->execute();
+  $result = $stmt->fetch(PDO::FETCH_ASSOC); //全件取得
+  // ============= ここまでDBからの取得 =============
+  return $result;
+}
+
 ?>
