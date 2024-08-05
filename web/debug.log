@@ -410,3 +410,131 @@ PDOStatement Object
     [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
 )
 
+user
+ユーザ名を設定したい！
+require_of_set_userName
+
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+LINE Bot
+ユーザ名を設定したい！
+requirement_of_userName
+
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+user
+あ
+send_something
+
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+LINE Bot
+あ
+not_defined_message
+
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+user
+ユーザ名を設定したい！
+require_of_set_userName
+
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+LINE Bot
+ユーザ名を設定したい！
+requirement_of_userName
+
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+user
+ユーザ名を設定したい！
+require_of_set_userName
+
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+LINE Bot
+ユーザ名を入力してください！
+requirement_of_userName
+
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
