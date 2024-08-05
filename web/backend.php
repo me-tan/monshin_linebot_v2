@@ -193,14 +193,25 @@ function getOneMysql($targetNum, $item, $pass_encrypt) {
   return $result;
 }
 
-function updateOneMysql($keepDay,$targetNum, $item, $pass_encrypt) {
+function updateOneMysql($setWord,$targetNum, $section, $pass_encrypt) {
   $pdo = connectMysql(); // DBとの接続開始
-  $stmt = $pdo->prepare("UPDATE $targetNum SET $item = :keepDay WHERE :line_uid = line_uid ORDER BY id DESC");
-  $stmt->bindValue(':keepDay', $keepDay, PDO::PARAM_STR); // bindValueメソッドでパラメータをセット
+  $stmt = $pdo->prepare("UPDATE $targetNum SET $section = :setWord WHERE :line_uid = line_uid ORDER BY id DESC");
+  $stmt->bindValue(':setWord', $setWord, PDO::PARAM_STR); // bindValueメソッドでパラメータをセット
   $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
   $stmt->execute();
   //$all = $stmt->fetchAll(PDO::FETCH_ASSOC); //全件取得
   // ============= ここまでDBからの取得 =============
+}
+
+function getLatestSituation($pass_encrypt) {
+  $pdo = connectMysql(); // DBとの接続開始
+  $stmt = $pdo->prepare("SELECT situation FROM message_log WHERE :line_uid = line_uid ORDER BY id DESC LIMIT 1");
+  $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  $stmt->execute();
+  $result = $stmt->fetch(PDO::FETCH_ASSOC); //全件取得
+  // ============= ここまでDBからの取得 =============
+  error_log(print_r($result , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+  return $result;
 }
 
 ?>
