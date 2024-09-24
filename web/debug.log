@@ -74,3 +74,141 @@ PDOStatement Object
     [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
 )
 
+user
+運動を改善したい！
+choose_improvement_item
+exercise_management
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+データベースから問診票の内容を取得
+インサートしました
+Deleted old records for line_uid: U617d82dabafc7d59de5834bd918674b1
+15
+Array
+(
+    [0] => 申し訳ありませんが、提供された情報は不完全であり、具体的な生活習慣を適切に反映していません。しかし、一般的な運動に関する目標を提案することはできます。以下をご参考にしてください。
+    [1] => 
+    [2] => - 毎日30分間のウォーキングをする
+    [3] => - 毎日10分間のストレッチを行う
+    [4] => - 毎日5分間の階段昇降を行う
+    [5] => - 毎日昼食後の10分間、軽い筋力トレーニングを行う（例：スクワット、プッシュアップ）
+)
+
+5
+LINE Bot
+a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:267:"申し訳ありませんが、提供された情報は不完全であり、具体的な生活習慣を適切に反映していません。しかし、一般的な運動に関する目標を提案することはできます。以下をご参考にしてください。";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:0:"";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:46:"- 毎日30分間のウォーキングをする";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:43:"- 毎日10分間のストレッチを行う";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
+show targets
+a:6:{i:0;s:267:"申し訳ありませんが、提供された情報は不完全であり、具体的な生活習慣を適切に反映していません。しかし、一般的な運動に関する目標を提案することはできます。以下をご参考にしてください。";i:1;s:0:"";i:2;s:46:"- 毎日30分間のウォーキングをする";i:3;s:43:"- 毎日10分間のストレッチを行う";i:4;s:39:"- 毎日5分間の階段昇降を行う";i:5;s:121:"- 毎日昼食後の10分間、軽い筋力トレーニングを行う（例：スクワット、プッシュアップ）";}
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+user
+運動を改善したい！
+choose_improvement_item
+exercise_management
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+データベースから問診票の内容を取得
+インサートしました
+Deleted old records for line_uid: U617d82dabafc7d59de5834bd918674b1
+15
+Array
+(
+    [0] => - 毎日10分間のストレッチをする
+    [1] => - 毎日夕食後に15分間のウォーキングをする
+    [2] => - 毎日3分間の腹筋運動を行う
+    [3] => - 毎日朝に5分間のヨガを実践する
+)
+
+5
+LINE Bot
+a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:43:"- 毎日10分間のストレッチをする";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:58:"- 毎日夕食後に15分間のウォーキングをする";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:39:"- 毎日3分間の腹筋運動を行う";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:45:"- 毎日朝に5分間のヨガを実践する";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
+show targets
+a:4:{i:0;s:43:"- 毎日10分間のストレッチをする";i:1;s:58:"- 毎日夕食後に15分間のウォーキングをする";i:2;s:39:"- 毎日3分間の腹筋運動を行う";i:3;s:45:"- 毎日朝に5分間のヨガを実践する";}
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+user
+他の目標を見たいです！
+requirement_of_check_other_target
+
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
+運動を改善したい！
+exercise_management
+データベースから問診票の内容を取得
+インサートしました
+Deleted old records for line_uid: U617d82dabafc7d59de5834bd918674b1
+15
+Array
+(
+    [0] => - 毎日15分間のウォーキングをする
+    [1] => - 毎日5分間のストレッチをする
+    [2] => - 毎日15分間の軽いエクササイズ（ヨガや体操など）をする
+    [3] => - 毎日5分間の深呼吸を含むリラクゼーションエクササイズをする
+)
+
+LINE Bot
+a:3:{s:4:"type";s:4:"flex";s:7:"altText";s:22:"this is a flex message";s:8:"contents";a:2:{s:4:"type";s:8:"carousel";s:8:"contents";a:1:{i:0;a:5:{s:4:"type";s:6:"bubble";s:4:"size";s:4:"giga";s:9:"direction";s:3:"ltr";s:6:"header";a:7:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:1:{i:0;a:12:{s:4:"type";s:4:"text";s:4:"text";s:33:"目標を選択してください";s:5:"color";s:7:"#ffffff";s:5:"align";s:6:"center";s:4:"size";s:2:"sm";s:7:"gravity";s:6:"center";s:10:"decoration";s:4:"none";s:8:"position";s:8:"relative";s:6:"margin";s:4:"none";s:4:"wrap";b:1;s:5:"style";s:6:"italic";s:6:"weight";s:4:"bold";}}s:15:"backgroundColor";s:7:"#27ACB2";s:10:"paddingTop";s:4:"19px";s:10:"paddingAll";s:4:"12px";s:13:"paddingBottom";s:4:"16px";}s:4:"body";a:5:{s:4:"type";s:3:"box";s:6:"layout";s:8:"vertical";s:8:"contents";a:5:{i:0;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:46:"- 毎日15分間のウォーキングをする";s:4:"text";s:30:"一番目を選択します！";}s:10:"adjustMode";s:13:"shrink-to-fit";s:5:"style";s:9:"secondary";}i:1;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:42:"- 毎日5分間のストレッチをする";s:4:"text";s:30:"二番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:2;a:4:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:79:"- 毎日15分間の軽いエクササイズ（ヨガや体操など）をする";s:4:"text";s:30:"三番目を選択します！";}s:5:"style";s:9:"secondary";s:10:"adjustMode";s:13:"shrink-to-fit";}i:3;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:87:"- 毎日5分間の深呼吸を含むリラクゼーションエクササイズをする";s:4:"text";s:30:"四番目を選択します！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}i:4;a:5:{s:4:"type";s:6:"button";s:6:"action";a:3:{s:4:"type";s:7:"message";s:5:"label";s:21:"他の目標を見る";s:4:"text";s:33:"他の目標を見たいです！";}s:5:"style";s:9:"secondary";s:7:"gravity";s:6:"center";s:10:"adjustMode";s:13:"shrink-to-fit";}}s:7:"spacing";s:2:"md";s:10:"paddingAll";s:4:"12px";}}}}}
+show targets
+a:4:{i:0;s:46:"- 毎日15分間のウォーキングをする";i:1;s:42:"- 毎日5分間のストレッチをする";i:2;s:79:"- 毎日15分間の軽いエクササイズ（ヨガや体操など）をする";i:3;s:87:"- 毎日5分間の深呼吸を含むリラクゼーションエクササイズをする";}
+U617d82dabafc7d59de5834bd918674b1
+13.6
+13.7
+13.8
+13.9
+13.10
+13.11
+PDOStatement Object
+(
+    [queryString] => INSERT INTO message_log (sender, messages, situation, contents, created_time, line_uid) VALUES (:sender, :messages, :situation, :contents, :created_time, :line_uid)
+)
+
