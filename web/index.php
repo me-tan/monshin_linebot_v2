@@ -286,25 +286,25 @@ function main()
 
     }else if ($text == 'できました！'){
       //-------------------------継続確認の重複の有無---------------------------------
-      //入力日時の比較
-      $situation = "report_of_what_was_done";
-      $item = "created_time";
-      $created_time = getOtherTargetMysql($situation, $item, $userId)[0]['created_time'];
+      // //入力日時の比較
+      // $situation = "report_of_what_was_done";
+      // $item = "created_time";
+      // $created_time = getOtherTargetMysql($situation, $item, $userId)[0]['created_time'];
 
-      $situation2 = "report_of_what_could_not_be_done";
-      $created_time2 = getOtherTargetMysql($situation2, $item, $userId)[0]['created_time'];
+      // $situation2 = "report_of_what_could_not_be_done";
+      // $created_time2 = getOtherTargetMysql($situation2, $item, $userId)[0]['created_time'];
 
-      $currentDatetime = date('Y-m-d H:i:s');
+      // $currentDatetime = date('Y-m-d H:i:s');
 
 
-      if (date('Y-m-d', strtotime($created_time)) === date('Y-m-d', strtotime($currentDatetime)) || date('Y-m-d', strtotime($created_time2)) === date('Y-m-d', strtotime($currentDatetime))) {
+      // if (date('Y-m-d', strtotime($created_time)) === date('Y-m-d', strtotime($currentDatetime)) || date('Y-m-d', strtotime($created_time2)) === date('Y-m-d', strtotime($currentDatetime))) {
           // 同じ日の場合の処理
-          $text = "申し訳ありません．同じ日に何度も継続確認は行えません．明日になってから継続できたか教えてください(^_^)/";
-          $messages . array_push($messages, ["type" => "text", "text" => $text]); // 適当にオウム返し
-          $situation = "message_of_can't_check_keeping";
-          $logMessage = $text;
+          // $text = "申し訳ありません．同じ日に何度も継続確認は行えません．明日になってから継続できたか教えてください(^_^)/";
+          // $messages . array_push($messages, ["type" => "text", "text" => $text]); // 適当にオウム返し
+          // $situation = "message_of_can't_check_keeping";
+          // $logMessage = $text;
 
-      }else{
+      // }else{
         //-------------------------継続できた場合の出力・言葉生成・ランキング生成---------------------------------
         //メッセージのログを残す
         $situation = "report_of_what_was_done";
@@ -364,10 +364,81 @@ function main()
 
         } 
 
+        //------------------------------------継続できた場合の言葉の生成-----------------------------------------
+
+        //プロンプトの作成に必要な要素の取得
+        $targetNum = $previousItem;
+        // データ取得用の関数
+        function getChatInfo($item, $targetNum, $userId) {
+          return getOneMysql($targetNum, $item, $userId)[$item];
+        }
+
+        // 取得処理のまとめ
+        $personality = getChatInfo('chat_personality', $previousItem, $userId);
+        $gender = getChatInfo('chat_gender', $previousItem, $userId);
+        $userName = getChatInfo('userName', $previousItem, $userId);
+        $dialect = getChatInfo('chat_dialect', $previousItem, $userId);
+        $target = getChatInfo('target', $previousItem, $userId);
+        // //チャットボットの性格の取得
+        // $item = "chat_personality";
+        // $targetNum = $previousItem;
+        // $personarlity = getOneMysql($targetNum, $item, $userId)['chat_personality'];
+
+        // //チャットボットの性別の取得
+        // $item = "chat_gender";
+        // $targetNum = $previousItem;
+        // $gender = getOneMysql($targetNum, $item, $userId)['chat_gender'];
+
+        // //ユーザの名前の取得
+        // $item = "userName";
+        // $targetNum = $previousItem;
+        // $userName = getOneMysql($targetNum, $item, $userId)['userName'];
+
+        // //ユーザの方言の取得
+        // $item = "chat_dialect";
+        // $targetNum = $previousItem;
+        // $dialect = getOneMysql($targetNum, $item, $userId)['chat_dialect'];
+
+        //チャットボットの性格リストの取得
+        if($personality == "外向的な性格"){
+          $personality_list = "他人との会話を好む\n" .
+             "他者とのかかわりによる刺激を求める\n" .
+             "社交的で適応が早い\n" .
+             "考えるより先に行動する\n" .
+             "友人や知人が多い\n" .
+             "自己主張が強い\n" .
+             "饒舌である\n" .
+             "エネルギーに満ちており，ノリがいい\n" .
+             "他人の行動や考えに意識が行きやすい\n" .
+             "他人のことを信頼しやすい\n";
+        }else if($personality == "協調的な性格"){
+          $personality_list = "サポートや協力を積極的に行う\n" .
+             "他者の意見を尊重できる\n" .
+             "明るくポジティブ思考である\n" .
+             "チームワークを重視している\n" .
+             "コミュニケーション能力が高い\n" .
+             "洞察力に優れ，相手の欠点を見つける\n" .
+             "傾聴力がある\n" .
+             "感情の起伏が少なく笑顔で寛容である\n" .
+             "相手の立場で考え，空気を読んだ行動ができる\n" .
+             "思いやりがあり，親切である\n";
+        }
+
+
         if($dayNum % 7 != 0){
-          $message = "あなたは継続管理を行う褒め上手な人です．ユーザは現在，生活習慣病の改善維持に取り組んでいます．継続が" .$dayNum. "日の間で". $keepDay .  "日続いた人をほめてください．100字以内でお願いします．";
-          $text_gpt = call_chatGPT($message); // GPTにプロンプトを送信
-          error_log(print_r("3" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+          if($dayNum % 2 != 0){
+            $message = "あなたは" . $personality . "で，私と同級生です．そして" . $gender . "で" . $dialect . "を話します．特徴は以下の通りです．\n" . $personality_list . "私は今，" . $target. "を目標に頑張ってて，" .$dayNum. "日の間で". $keepDay .  "日目標達成できたの！しかも，今日も達成できたし！．この頑張りを，褒めてほしい！そして，励ましても欲しい！長文読むのしんどいから100字以内で見やすく書いてほしい！";
+            $text_gpt = call_chatGPT($message); // GPTにプロンプトを送信
+          }else if($dayNum % 2 == 0 && $dayNum % 4 == 0){
+            $message = "あなたは" . $personality . "で，私と同級生です．そして" . $gender . "で" . $dialect . "を話します．特徴は以下の通りです．\n" . $personality_list . "私は今，" . $target. "を目標に頑張ってて，" .$dayNum. "日の間で". $keepDay .  "日目標達成できたの！しかも，今日も達成できたし！．この頑張りに対して，アドバイスと褒める言葉が欲しい！長文は苦手だから120字以内で見やすく書いてほしい";
+            $text_gpt = call_chatGPT($message); // GPTにプロンプトを送信
+          }else {
+            $message = "あなたは" . $personality . "で，私と同級生です．そして" . $gender . "で" . $dialect . "を話します．特徴は以下の通りです．\n" . $personality_list . "私は今，" . $target. "を目標に頑張ってて，" .$dayNum. "日の間で". $keepDay .  "日目標達成できたの！しかも，今日も達成できたし！．この頑張りを，具体的な体験談をもとに共感してほしい！あと，褒める言葉も！長文は苦手だから120字以内で見やすく書いてほしい";
+            $text_gpt = call_chatGPT($message); // GPTにプロンプトを送信
+          }
+          // $message = "あなたは継続管理を行う褒め上手な人です．ユーザは現在，生活習慣病の改善維持に取り組んでいます．継続が" .$dayNum. "日の間で". $keepDay .  "日続いた人をほめてください．100字以内でお願いします．";
+          // $text_gpt = call_chatGPT($message); // GPTにプロンプトを送信
+          // error_log(print_r("3" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
         }else{
           $message = "1週間お疲れ様です．次の週からは以下のメンバーと順位を競います．次も頑張っていきましょう！";
@@ -375,6 +446,30 @@ function main()
           error_log(print_r("4" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
         }
+
+        //-----------------------------------継続できた場合のグループ情報の開示----------------------------------------
+        //グループメンバーを決定
+        $groupMember = array("みきてぃ", "わだにゃん", "イミグレーション" , "オッフェンバック");
+
+        //データベースから情報を取る際に必要な情報を取得
+        $situation = "choose_improvement_item";
+        $item = "contents";
+        $targetNum = getOtherTargetMysql($situation, $item, $userId)[0]['contents'];
+
+        //継続日数の抽出
+        $item = "keep_days";
+        $keepDay = getOneMysql($targetNum, $item, $userId)['keep_days'];
+
+        //グループポイントの抽出
+        $item = "group_points";
+        $groupPoint = getOneMysql($targetNum, $item, $userId)['group_points'];
+
+        // $groupPoint = 15;
+        // $keepDay = 6;
+
+
+        $flexMessage = group_data($groupMember, $keepDay, $groupPoint);
+
 
         //一週目か二週目かを判断
         if($dayNum > 7){
@@ -391,7 +486,7 @@ function main()
           $allDay = $dayNum + $weekNum;
           //コンテンツへの全ユーザ順位の追加
           $contents = serialize($resultRank);
-          $flexMessage = ranking($resultRank, $allDay);
+          $flexMessage2 = ranking($resultRank, $allDay);
           error_log(print_r("6" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
 
@@ -418,10 +513,11 @@ function main()
 
 
         if($dayNum % 2 == 0 ){
-          $count = 3;
-          $situation1 = "flexMessage_of_ranking";
-          $situation2 = "evaluation_and_words_of_praise";
-          error_log(print_r("10" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+          $count = 5;
+          $situation = "evaluation_and_words_of_praise";
+          $situation1 = "flexMessage_of_group_data";
+          $situation2 = "flexMessage_of_ranking";
+          error_log(print_r("12" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
         }else if($dayNum % 7 == 0){
           $count = 4;
@@ -432,11 +528,13 @@ function main()
           error_log(print_r("11" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
         }else{
-          $count = 0;
-          $situation = "evaluation_and_words_of_praise";
-          error_log(print_r("12" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+          $count = 3;
+          $situation1 = "flexMessage_of_group_data";
+          $situation2 = "evaluation_and_words_of_praise";
+          error_log(print_r("10" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+
         }
-      }
+      // }
 
     }else if ($text == 'できませんでした'){
       //入力日時の比較
@@ -940,7 +1038,7 @@ function main()
       putMessageLogMysql($sender, $serialize_flexMessage, $situation2, $contents, $userId);
 
     }else if($count == 3) {
-      //メッセージを二つ送信
+      //フレックスメッセージとメッセージの送信
       sendFlexMessage([
         "to" => $userId, //user id
         "messages" => [$flexMessage],
@@ -986,6 +1084,28 @@ function main()
       ]);
       $serialize_flexMessage = serialize($flexMessage2);
       putMessageLogMysql($sender, $serialize_flexMessage, $situation4, $contents, $userId);
+
+    }else if($count == 5){
+      //フレックスメッセージ・フレックスメッセージ・メッセージを送信
+      sendFlexMessage([
+        "to" => $userId, //user id
+        "messages" => [$flexMessage1],
+      ]);
+      $serialize_flexMessage = serialize($flexMessage1);
+      putMessageLogMysql($sender, $serialize_flexMessage, $situation1, $contents, $userId);
+
+      sendFlexMessage([
+        "to" => $userId, //user id
+        "messages" => [$flexMessage2],
+      ]);
+      $serialize_flexMessage2 = serialize($flexMessage2);
+      putMessageLogMysql($sender, $serialize_flexMessage2, $situation2, $contents, $userId);
+
+      sendMessage([
+        "replyToken" => $replyToken,
+        "messages" => $messages
+      ]);
+      putMessageLogMysql($sender, $logMessage, $situation, $contents, $userId);
 
     }else{
       sendMessage([
