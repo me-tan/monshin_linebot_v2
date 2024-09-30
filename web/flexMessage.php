@@ -90,6 +90,17 @@ function getTargetFlexMessage($ary_from_gpt){
                               "gravity" => "center",
                               "adjustMode" => "shrink-to-fit",
                           ],
+                          [
+                            "type" => "button",
+                            "action" => [
+                                "type" => "message",
+                                "label" => "自分で目標を決める",
+                                "text" => "自分で目標を決めたいです！",
+                            ],
+                            "style" => "secondary",
+                            "gravity" => "center",
+                            "adjustMode" => "shrink-to-fit",
+                        ],
                       ],
                       "spacing" => "md",
                       "paddingAll" => "12px",
@@ -635,4 +646,513 @@ function confirmation() {
     ];
     return $flexMessage;
   }
+
+  function personality(){
+    $flexMessage = [
+        "type" => "flex",
+        "altText" => "this is a flex message",
+        "contents" => [
+          "type" => "carousel",
+          "contents" => [
+              [
+                  "type" => "bubble",
+                  "body" => [
+                      "type" => "box",
+                      "layout" => "vertical",
+                      "contents" => [
+                          [
+                              "type" => "button",
+                              "action" => [
+                                  "type" => "message",
+                                  "label" => "協調的な性格",
+                                  "text" => "協調的な性格がいい！"
+                              ]
+                          ]
+                      ]
+                  ],
+                  "size" => "deca"
+              ],
+              [
+                  "type" => "bubble",
+                  "size" => "deca",
+                  "body" => [
+                      "type" => "box",
+                      "layout" => "vertical",
+                      "contents" => [
+                          [
+                              "type" => "button",
+                              "action" => [
+                                  "type" => "message",
+                                  "label" => "外向的な性格",
+                                  "text" => "外向的な性格がいい！"
+                              ]
+                          ]
+                      ]
+                  ]
+              ],
+          ]
+        ]
+      ];
+      return $flexMessage;
+  }
+  function gender() {
+    $flexMessage = [
+        "type" => "flex",
+        "altText" => "this is a flex message",
+        "contents" => [
+          "type" => "carousel",
+          "contents" => [
+              [
+                  "type" => "bubble",
+                  "body" => [
+                      "type" => "box",
+                      "layout" => "vertical",
+                      "contents" => [
+                          [
+                              "type" => "button",
+                              "action" => [
+                                  "type" => "message",
+                                  "label" => "男性",
+                                  "text" => "男性がいい！"
+                              ]
+                          ]
+                      ]
+                  ],
+                  "size" => "deca"
+              ],
+              [
+                  "type" => "bubble",
+                  "size" => "deca",
+                  "body" => [
+                      "type" => "box",
+                      "layout" => "vertical",
+                      "contents" => [
+                          [
+                              "type" => "button",
+                              "action" => [
+                                  "type" => "message",
+                                  "label" => "女性",
+                                  "text" => "女性がいい！"
+                              ]
+                          ]
+                      ]
+                  ]
+              ],
+          ]
+        ]
+      ];
+      return $flexMessage;
+  }
+
+  function dialect(){
+    $flexMessage = [
+        "type" => "flex",
+        "altText" => "this is a flex message",
+        "contents" => [
+          "type" => "carousel",
+          "contents" => [
+              [
+                  "type" => "bubble",
+                  "body" => [
+                      "type" => "box",
+                      "layout" => "vertical",
+                      "contents" => [
+                          [
+                              "type" => "button",
+                              "action" => [
+                                  "type" => "message",
+                                  "label" => "標準語",
+                                  "text" => "標準語がいい！"
+                              ]
+                          ]
+                      ]
+                  ],
+                  "size" => "deca"
+              ],
+              [
+                "type" => "bubble",
+                "size" => "deca",
+                "body" => [
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => [
+                        [
+                            "type" => "button",
+                            "action" => [
+                                "type" => "message",
+                                "label" => "東北弁",
+                                "text" => "東北弁がいい！"
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                "type" => "bubble",
+                "size" => "deca",
+                "body" => [
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => [
+                        [
+                            "type" => "button",
+                            "action" => [
+                                "type" => "message",
+                                "label" => "関西弁",
+                                "text" => "関西弁がいい！"
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                "type" => "bubble",
+                "size" => "deca",
+                "body" => [
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => [
+                        [
+                            "type" => "button",
+                            "action" => [
+                                "type" => "message",
+                                "label" => "広島弁",
+                                "text" => "広島弁がいい！"
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                "type" => "bubble",
+                "size" => "deca",
+                "body" => [
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => [
+                        [
+                            "type" => "button",
+                            "action" => [
+                                "type" => "message",
+                                "label" => "博多弁",
+                                "text" => "博多弁がいい！"
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                "type" => "bubble",
+                "size" => "deca",
+                "body" => [
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => [
+                        [
+                            "type" => "button",
+                            "action" => [
+                                "type" => "message",
+                                "label" => "鹿児島弁",
+                                "text" => "鹿児島弁がいい！"
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                "type" => "bubble",
+                "size" => "deca",
+                "body" => [
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => [
+                        [
+                            "type" => "button",
+                            "action" => [
+                                "type" => "message",
+                                "label" => "沖縄弁",
+                                "text" => "沖縄弁がいい！"
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+          ]
+        ]
+      ];
+      return $flexMessage;
+    
+  }
+  function group_data($groupName, $keep_days, $groupPoint){
+    $userPoints = $keep_days . "pt" . "（継続" . $keep_days . "日）";
+    $max_day = 6;
+    $goal_points = 16;
+    $max_group_point = 27;
+
+    //ユーザポイントのメモリを作るための配列を作成
+    if($keep_days < 7) {
+        $array = array_merge(array_fill(0, $keep_days, '#FF4500'), array_fill(0, $max_day - $keep_days, '#FFE4E1'));
+        $last_color = '#FFE4E1';
+    } else {
+        $array = array_fill(0, $max_day, '#FF4500');
+        $last_color = '#FF4500';
+    }
+
+    //グループポイントのメモリを作るための配列を作成
+    if($groupPoint < 17) {
+        $first_array = array_merge(array_fill(0, $groupPoint, '#1E90FF'), array_fill(0, $goal_points - $groupPoint, '#ADD8E6'));
+        $last_array = array_fill(0, $max_group_point - $goal_points, '#ADD8E6');
+        $last_color2 = '#ADD8E6';
+    } else if($groupPoint < 27) {
+        $first_array = array_fill(0, $goal_points, '#1E90FF');
+        $last_array = array_merge(array_fill(0, $groupPoint - $goal_points, '#1E90FF'), array_fill(0, $max_group_point - $groupPoint, '#ADD8E6'));
+        $last_color2 = '#ADD8E6';
+    }else {
+        $first_array = array_fill(0, $goal_points, '#1E90FF');
+        $last_array = array_fill(0, $max_group_point - $goal_points, '#1E90FF');
+        $last_color2 = '#1E90FF';
+    }
+
+
+    $flexMessage = [
+        "type" => "flex",
+        "altText" => "this is a flex message",
+        "contents" => [
+            'type' => 'bubble',
+            'body' => [
+                'type' => 'box',
+                'layout' => 'vertical',
+                'contents' => [
+                    [
+                        'type' => 'text',
+                        'text' => 'チームメンバー',
+                        'weight' => 'bold',
+                        'size' => 'md',
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'horizontal',
+                        'contents' => [
+                            [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => $groupName[0],
+                                        'align' => 'center',
+                                        'size' => 'sm',
+                                    ],
+                                ],
+                                'backgroundColor' => '#FAFAD2',
+                                'width' => '50%',
+                                'height' => '30px',
+                                'justifyContent' => 'center',
+                            ],
+                            [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => $groupName[1],
+                                        'align' => 'center',
+                                        'size' => 'sm',
+                                    ],
+                                ],
+                                'backgroundColor' => '#FAFAD2',
+                                'width' => '50%',
+                                'height' => '30px',
+                                'justifyContent' => 'center',
+                            ],
+                        ],
+                        'spacing' => 'sm',
+                        'margin' => 'xs',
+                        'justifyContent' => 'center',
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'horizontal',
+                        'contents' => [
+                            [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => $groupName[2],
+                                        'align' => 'center',
+                                        'size' => 'sm',
+                                    ],
+                                ],
+                                'backgroundColor' => '#FAFAD2',
+                                'width' => '50%',
+                                'height' => '30px',
+                                'justifyContent' => 'center',
+                            ],
+                            [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => $groupName[3],
+                                        'align' => 'center',
+                                        'size' => 'sm',
+                                    ],
+                                ],
+                                'backgroundColor' => '#FAFAD2',
+                                'width' => '50%',
+                                'height' => '30px',
+                                'justifyContent' => 'center',
+                            ],
+                        ],
+                        'margin' => 'sm',
+                        'justifyContent' => 'center',
+                        'spacing' => 'sm',
+                    ],
+                    [
+                        'type' => 'text',
+                        'text' => 'あなたのポイント',
+                        'margin' => 'sm',
+                        'weight' => 'bold',
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'horizontal',
+                        'contents' => [
+                            [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => $userPoints,
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'horizontal',
+                        'contents' => array_merge(array_map(function ($color) {
+                            return [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [],
+                                'width' => '14%',
+                                'backgroundColor' => $color,
+                                'borderWidth' => 'light',
+                                'borderColor' => ($color === '#FFE4E1') ? '#FFFFFF' : '#FFE4E1',
+                            ];
+                        }, $array),
+                        [
+                            [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [],
+                                'width' => '20%',
+                                'backgroundColor' => $last_color,
+                            ],
+
+                        ]),
+                        'height' => '20px',
+                        'cornerRadius' => '10px',
+                        'margin' => 'sm',
+                        'width' => '25%',
+                    ],
+                    [
+                        'type' => 'text',
+                        'text' => 'チームの総ポイント',
+                        'margin' => 'lg',
+                        'weight' => 'bold',
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'horizontal',
+                        'contents' => [
+                            [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => $groupPoint . 'pt',
+                                        'size' => 'md',
+                                    ],
+                                ],
+                                'width' => '57%',
+                            ],
+                            [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => 'goal',
+                                        'size' => 'sm',
+                                    ],
+                                ],
+                                'justifyContent' => 'flex-end',
+                            ],
+                        ],
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'horizontal',
+                        'contents' => array_merge(array_map(function ($color) {
+                            return [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [],
+                                'width' => '3.5%',
+                                'backgroundColor' => $color,
+                                'borderWidth' => 'light',
+                                'borderColor' => ($color === '#ADD8E6') ? '#FFFFFF' : '#ADD8E6',
+                            ];
+                        }, $first_array), 
+                        [
+                            [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [],
+                                'width' => '1%',
+                                'backgroundColor' => '#ff8c00',
+                            ],
+
+                        ],
+                        array_map(function ($color) {
+                            return [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [],
+                                'width' => '3.5%',
+                                'backgroundColor' => $color,
+                                'borderWidth' => 'light',
+                                'borderColor' => ($color === '#ADD8E6') ? '#FFFFFF' : '#ADD8E6',
+                            ];
+                        }, $last_array),
+                        [
+                            [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [],
+                                'width' => '5%',
+                                'backgroundColor' => $last_color2,
+                                'borderWidth' => 'light',
+                                'borderColor' => ($last_color2 === '#ADD8E6') ? '#FFFFFF' : '#ADD8E6',
+                            ],
+                        ]),
+                        'height' => '20px',
+                        'cornerRadius' => '10px',
+                        'margin' => 'sm',
+                    ],
+                ],
+                'width' => '100%',
+            ],
+        ],
+    ];
+    return $flexMessage;
+}
 ?>
