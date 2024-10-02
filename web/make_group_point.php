@@ -62,20 +62,20 @@ function generateRandomNumber($group_point, $keep_days, $dayNum, $goal_acheived)
     return $get_point;
 }
 
-// テスト
-$group_point = 0;
-$goal_acheived = [true, false, true, true, true, true, false];
-$keep_days = 0;
-$dayNum = 1;
+// // テスト
+// $group_point = 0;
+// $goal_acheived = [true, false, true, true, true, true, false];
+// $keep_days = 0;
+// $dayNum = 1;
 
 
-for ($i = 1; $i <= 7; $i++) {
-    if($goal_acheived[$i-1] == true){
-        $keep_days++;
-    }
-    $group_point = updateGroupPoint($goal_acheived[$i-1], $group_point, $keep_days, $i);
-    echo "Day $i: Group Point = $group_point\n";
+// for ($i = 1; $i <= 7; $i++) {
+//     if($goal_acheived[$i-1] == true){
+//         $keep_days++;
+//     }
+//     $group_point = updateGroupPoint($goal_acheived[$i-1], $group_point, $keep_days, $i);
+//     echo "Day $i: Group Point = $group_point\n";
     
-}
+// }
 
 ?>

@@ -1054,6 +1054,8 @@ function confirmation() {
                                 'contents' => [],
                                 'width' => '20%',
                                 'backgroundColor' => $last_color,
+                                'borderWidth' => 'light',
+                                'borderColor' => ($last_color === '#FFE4E1') ? '#FFFFFF' : '#FFE4E1',
                             ],
 
                         ]),

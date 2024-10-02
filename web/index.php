@@ -15,6 +15,7 @@ require('./backend.php');
 require('./flexMessage.php');
 require('./makeRanking.php');
 require('./setTarget.php');
+require('./make_group_point.php');
 //require ('./chatapi.php');
 
 function sendMessage($post_data)
@@ -341,27 +342,27 @@ function main()
         $targetNum = $previousItem;
         $weekNum = getOneMysql($targetNum, $item, $userId)['week_num'];
 
-        $message_log = 'weekNumを抽出しました';
-        error_log(print_r($message_log , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        // $message_log = 'weekNumを抽出しました';
+        // error_log(print_r($message_log , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
         //何週間目の継続日数か抽出
         $item = "week_keep_num";
         $targetNum = $previousItem;
         $weekKeepNum = getOneMysql($targetNum, $item, $userId)['week_keep_num'];
 
-        $message_log = 'weekKeepNumを抽出しました';
-        error_log(print_r($message_log , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        // $message_log = 'weekKeepNumを抽出しました';
+        // error_log(print_r($message_log , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
         //もし週間目だったら日数と継続日数をデータベースに保存
         if($dayNum % 7 == 0){
           $item = "week_num";
           updateOneMysql($dayNum,$targetNum, $item, $userId);
-          error_log(print_r("1" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+          // error_log(print_r("1" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
 
           $item = "week_keep_num";
           updateOneMysql($keepDay,$targetNum, $item, $userId);
-          error_log(print_r("2" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+          // error_log(print_r("2" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
         } 
 
@@ -380,6 +381,10 @@ function main()
         $userName = getChatInfo('userName', $previousItem, $userId);
         $dialect = getChatInfo('chat_dialect', $previousItem, $userId);
         $target = getChatInfo('target', $previousItem, $userId);
+
+        error_log(print_r("必要な情報の取得" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+
+        
         // //チャットボットの性格の取得
         // $item = "chat_personality";
         // $targetNum = $previousItem;
@@ -424,6 +429,7 @@ function main()
              "相手の立場で考え，空気を読んだ行動ができる\n" .
              "思いやりがあり，親切である\n";
         }
+        error_log(print_r($personality_list , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
 
         if($dayNum % 7 != 0){
@@ -437,6 +443,7 @@ function main()
             $message = "あなたは" . $personality . "で，私と同級生です．そして" . $gender . "で" . $dialect . "を話します．特徴は以下の通りです．\n" . $personality_list . "私は今，" . $target. "を目標に頑張ってて，" .$dayNum. "日の間で". $keepDay .  "日目標達成できたの！しかも，今日も達成できたし！．この頑張りを，具体的な体験談をもとに共感してほしい！あと，褒める言葉も！長文は苦手だから120字以内で見やすく書いてほしい";
             $text_gpt = call_chatGPT($message); // GPTにプロンプトを送信
           }
+          error_log(print_r($text_gpt , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
           // $message = "あなたは継続管理を行う褒め上手な人です．ユーザは現在，生活習慣病の改善維持に取り組んでいます．継続が" .$dayNum. "日の間で". $keepDay .  "日続いた人をほめてください．100字以内でお願いします．";
           // $text_gpt = call_chatGPT($message); // GPTにプロンプトを送信
           // error_log(print_r("3" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
@@ -444,7 +451,7 @@ function main()
         }else{
           $message = "1週間お疲れ様です．次の週からは以下のメンバーと順位を競います．次も頑張っていきましょう！";
           $text_gpt = $message;
-          error_log(print_r("4" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+          // error_log(print_r("4" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
         }
 
@@ -452,24 +459,29 @@ function main()
         //グループメンバーを決定
         $groupMember = array("みきてぃ", "わだにゃん", "イミグレーション" , "オッフェンバック");
 
-        //データベースから情報を取る際に必要な情報を取得
-        $situation = "choose_improvement_item";
-        $item = "contents";
-        $targetNum = getOtherTargetMysql($situation, $item, $userId)[0]['contents'];
-
-        //継続日数の抽出
-        $item = "keep_days";
-        $keepDay = getOneMysql($targetNum, $item, $userId)['keep_days'];
-
         //グループポイントの抽出
         $item = "group_points";
         $groupPoint = getOneMysql($targetNum, $item, $userId)['group_points'];
+
+        // 一週目か二週目かを判断
+        if($dayNum > 7){
+          $dayNum = $dayNum - $weekNum;
+          $keepDay = $keepDay - $weekKeepNum;
+        }
+
+        $group_point = updateGroupPoint($goal_achieved, $groupPoint, $keepDay, $dayNum);
+
+        //グループポイントの保存
+        $item = "group_points";
+        updateOneMysql($group_point,$targetNum, $item, $userId);
+
+
 
         // $groupPoint = 15;
         // $keepDay = 6;
 
 
-        $flexMessage = group_data($groupMember, $keepDay, $groupPoint);
+        $flexMessage = group_data($groupMember, $keepDay, $group_point);
 
         //ランキングの生成
         //一週目か二週目かを判断
@@ -518,33 +530,34 @@ function main()
         error_log(print_r("9" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
 
-        if($dayNum % 2 == 0 ){
-          $count = 5;
-          $situation = "evaluation_and_words_of_praise";
-          $situation1 = "flexMessage_of_group_data";
-          $situation2 = "flexMessage_of_ranking";
-          error_log(print_r("12" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        // if($dayNum % 2 == 0 ){
+        //   $count = 5;
+        //   $situation = "evaluation_and_words_of_praise";
+        //   $situation1 = "flexMessage_of_group_data";
+        //   $situation2 = "flexMessage_of_ranking";
+        //   error_log(print_r("12" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
-        }else if($dayNum % 7 == 0){
-          $count = 4;
-          $situation1 = "flexMessage_of_ranking";
-          $situation2 = "words_of_next_praise";
-          $situation3 = "flexMessage_of_lastWeek_rank";
-          $situation4 = "flexMessage_of_nextUser";
-          error_log(print_r("11" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        // }else if($dayNum % 7 == 0){
+        //   $count = 4;
+        //   $situation1 = "flexMessage_of_ranking";
+        //   $situation2 = "words_of_next_praise";
+        //   $situation3 = "flexMessage_of_lastWeek_rank";
+        //   $situation4 = "flexMessage_of_nextUser";
+        //   error_log(print_r("11" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
-        }else{
+        // }else{
           $count = 3;
           $situation1 = "flexMessage_of_group_data";
           $situation2 = "evaluation_and_words_of_praise";
-          error_log(print_r("10" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+          error_log(print_r("situationなどの保存を行う" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
-        }
+        // }
       // }
 
     }else if ($text == 'できませんでした'){
       $goal_achieved = false;
-      //入力日時の比較
+
+      //-----------------------------------------------------入力日時の比較-----------------------------------------------------
       $situation = "report_of_what_could_not_be_done";
       $item = "created_time";
       $created_time = getOtherTargetMysql($situation, $item, $userId)[0]['created_time'];
