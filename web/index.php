@@ -82,6 +82,7 @@ function main()
   $ary_from_gpt = [];
   // $targetNum;
   $rankings = [];
+  $goal_achieved = false;
   $contents = "";
   // $situation = "";
   /* ***** */
@@ -144,8 +145,7 @@ function main()
       $situation = "show targets";
       $count = 1;
       
-    }
-    else if($text == '一番目を選択します！' || $text == '二番目を選択します！' || $text == '三番目を選択します！' || $text == '四番目を選択します！'){
+    }else if($text == '一番目を選択します！' || $text == '二番目を選択します！' || $text == '三番目を選択します！' || $text == '四番目を選択します！'){
       //メッセージのログを残す
       $situation = "choose_target";
       putMessageLogMysql($sender, $text, $situation, $contents, $userId);
@@ -285,6 +285,7 @@ function main()
       $situation2 = "show_tool_flexMessage";
 
     }else if ($text == 'できました！'){
+      $goal_achieved = true; 
       //-------------------------継続確認の重複の有無---------------------------------
       // //入力日時の比較
       // $situation = "report_of_what_was_done";
@@ -470,42 +471,47 @@ function main()
 
         $flexMessage = group_data($groupMember, $keepDay, $groupPoint);
 
-
+        //ランキングの生成
         //一週目か二週目かを判断
-        if($dayNum > 7){
-          $dayNum = $dayNum - $weekNum;
-          $keepDay = $keepDay - $weekKeepNum;
-        }
-        if($dayNum % 2 == 0 || $dayNum % 7 == 0){
-          $userInfo = ["keepDays" => $keepDay, "dayNum" => $dayNum, "weekKeepNum" => $weekKeepNum];
-          $resultRank = rankingMaker($userInfo, $userId);
-          // error_log(print_r($dayNum , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
-          // error_log(print_r($keepDay , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
-          error_log(print_r("5" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
-
-          $allDay = $dayNum + $weekNum;
-          //コンテンツへの全ユーザ順位の追加
-          $contents = serialize($resultRank);
-          $flexMessage2 = ranking($resultRank, $allDay);
-          error_log(print_r("6" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        // if($dayNum > 7){
+        //   $dayNum = $dayNum - $weekNum;
+        //   $keepDay = $keepDay - $weekKeepNum;
+        // }
 
 
-          // $userRank;
-          if($dayNum % 7 == 0){
-            foreach($resultRank as &$ranking){
-              if($ranking['user'] == 'あなた'){
-                $userRank = $ranking['rank'];
-                $userDay = $ranking['point'];
-                error_log(print_r("7" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
-              }
-            }
+        // if($dayNum % 2 == 0 || $dayNum % 7 == 0){
+        //   $userInfo = ["keepDays" => $keepDay, "dayNum" => $dayNum, "weekKeepNum" => $weekKeepNum];
+        //   $resultRank = rankingMaker($userInfo, $userId);
+        //   // error_log(print_r($dayNum , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        //   // error_log(print_r($keepDay , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        //   error_log(print_r("5" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
-            $flexMessage1 = lastWeek($userRank);
-            $flexMessage2 = makeUser($userDay);
-            error_log(print_r("8" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        //   $allDay = $dayNum + $weekNum;
+        //   //コンテンツへの全ユーザ順位の追加
+        //   $contents = serialize($resultRank);
+        //   $flexMessage2 = ranking($resultRank, $allDay);
+        //   error_log(print_r("6" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+
+
+        //   // $userRank;
+        //   if($dayNum % 7 == 0){
+        //     foreach($resultRank as &$ranking){
+        //       if($ranking['user'] == 'あなた'){
+        //         $userRank = $ranking['rank'];
+        //         $userDay = $ranking['point'];
+        //         error_log(print_r("7" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
+        //       }
+        //     }
+
+        //     $flexMessage1 = lastWeek($userRank);
+        //     $flexMessage2 = makeUser($userDay);
+        //     error_log(print_r("8" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
             
-          }
-        }
+        //   }
+        // }
+
+        //ランキングの作成
+
           
         $logMessage = $text_gpt;
         $messages . array_push($messages, ["type" => "text", "text" => $text_gpt]); // 適当にオウム返し
@@ -537,6 +543,7 @@ function main()
       // }
 
     }else if ($text == 'できませんでした'){
+      $goal_achieved = false;
       //入力日時の比較
       $situation = "report_of_what_could_not_be_done";
       $item = "created_time";
