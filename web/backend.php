@@ -214,4 +214,38 @@ function getLatestSituation($pass_encrypt) {
   return $result;
 }
 
+function judgeFirstMessage($pass_encrypt, $message) {
+  $pdo = connectMysql();
+  $sql = "SELECT COUNT(*) FROM message_log WHERE line_uid = :line_uid AND messages = :messages";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(':line_uid', $pass_encrypt, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  $stmt->bindValue(':messages', $message, PDO::PARAM_STR); //bindValueメソッドでパラメータをセット
+  $stmt->execute();
+  $count = $stmt->fetchColumn();
+
+  // デバッグ用のログ出力
+  error_log("SQL Query: $sql\n", 3, dirname(__FILE__) . '/debug.log');
+  error_log("Parameters: line_uid = $pass_encrypt, messages = $message\n", 3, dirname(__FILE__) . '/debug.log');
+  error_log("Count: $count\n", 3, dirname(__FILE__) . '/debug.log');
+  
+  return $count == 0;
+}
+
+// function getGroupMember(){
+//   // ランダムに3人の名前を取得するクエリ
+//   $pdo = connectMysql();
+//   $sql = 'SELECT holiday_dinnerStartTime FROM mnsn_sheet_linebot_test ORDER BY RAND() LIMIT 3';
+//   $stmt = $pdo->prepare($sql);
+//   $stmt->execute();
+
+//   // 結果を配列に格納
+//   $groupMember = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+//   foreach($groupMember as $item){
+//     $groupMember_array[] = $item['holiday_dinnerStartTime'];
+//   }
+
+//   return $groupMember_array;
+// }
+
 ?>

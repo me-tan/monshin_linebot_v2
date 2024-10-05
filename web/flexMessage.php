@@ -607,6 +607,7 @@ function confirmation() {
         "contents" => [
             [
                 "type" => "bubble",
+                "size" => "micro",
                 "body" => [
                     "type" => "box",
                     "layout" => "vertical",
@@ -615,17 +616,16 @@ function confirmation() {
                             "type" => "button",
                             "action" => [
                                 "type" => "message",
-                                "label" => "目標の確認",
-                                "text" => "目標を確認したい！"
+                                "label" => "ユーザ名の設定",
+                                "text" => "ユーザ名を設定したい！"
                             ]
                         ]
                     ]
-                ],
-                "size" => "deca"
+                ]
             ],
             [
                 "type" => "bubble",
-                "size" => "deca",
+                "size" => "micro",
                 "body" => [
                     "type" => "box",
                     "layout" => "vertical",
@@ -634,8 +634,62 @@ function confirmation() {
                             "type" => "button",
                             "action" => [
                                 "type" => "message",
-                                "label" => "継続日数の確認",
-                                "text" => "継続日数を確認したい！"
+                                "label" => "性別の設定",
+                                "text" => "性別を設定したい！"
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                "type" => "bubble",
+                "size" => "micro",
+                "body" => [
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => [
+                        [
+                            "type" => "button",
+                            "action" => [
+                                "type" => "message",
+                                "label" => "性格の設定",
+                                "text" => "性格を設定したい！"
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                "type" => "bubble",
+                "size" => "micro",
+                "body" => [
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => [
+                        [
+                            "type" => "button",
+                            "action" => [
+                                "type" => "message",
+                                "label" => "方言の設定",
+                                "text" => "方言を設定したい！"
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                "type" => "bubble",
+                "size" => "micro",
+                "body" => [
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => [
+                        [
+                            "type" => "button",
+                            "action" => [
+                                "type" => "message",
+                                "label" => "通知時間の設定",
+                                "text" => "通知時間を設定したい！"
                             ]
                         ]
                     ]
@@ -769,24 +823,6 @@ function confirmation() {
                   ],
                   "size" => "deca"
               ],
-              [
-                "type" => "bubble",
-                "size" => "deca",
-                "body" => [
-                    "type" => "box",
-                    "layout" => "vertical",
-                    "contents" => [
-                        [
-                            "type" => "button",
-                            "action" => [
-                                "type" => "message",
-                                "label" => "東北弁",
-                                "text" => "東北弁がいい！"
-                            ]
-                        ]
-                    ]
-                ]
-            ],
             [
                 "type" => "bubble",
                 "size" => "deca",
@@ -800,78 +836,6 @@ function confirmation() {
                                 "type" => "message",
                                 "label" => "関西弁",
                                 "text" => "関西弁がいい！"
-                            ]
-                        ]
-                    ]
-                ]
-            ],
-            [
-                "type" => "bubble",
-                "size" => "deca",
-                "body" => [
-                    "type" => "box",
-                    "layout" => "vertical",
-                    "contents" => [
-                        [
-                            "type" => "button",
-                            "action" => [
-                                "type" => "message",
-                                "label" => "広島弁",
-                                "text" => "広島弁がいい！"
-                            ]
-                        ]
-                    ]
-                ]
-            ],
-            [
-                "type" => "bubble",
-                "size" => "deca",
-                "body" => [
-                    "type" => "box",
-                    "layout" => "vertical",
-                    "contents" => [
-                        [
-                            "type" => "button",
-                            "action" => [
-                                "type" => "message",
-                                "label" => "博多弁",
-                                "text" => "博多弁がいい！"
-                            ]
-                        ]
-                    ]
-                ]
-            ],
-            [
-                "type" => "bubble",
-                "size" => "deca",
-                "body" => [
-                    "type" => "box",
-                    "layout" => "vertical",
-                    "contents" => [
-                        [
-                            "type" => "button",
-                            "action" => [
-                                "type" => "message",
-                                "label" => "鹿児島弁",
-                                "text" => "鹿児島弁がいい！"
-                            ]
-                        ]
-                    ]
-                ]
-            ],
-            [
-                "type" => "bubble",
-                "size" => "deca",
-                "body" => [
-                    "type" => "box",
-                    "layout" => "vertical",
-                    "contents" => [
-                        [
-                            "type" => "button",
-                            "action" => [
-                                "type" => "message",
-                                "label" => "沖縄弁",
-                                "text" => "沖縄弁がいい！"
                             ]
                         ]
                     ]
@@ -1157,4 +1121,266 @@ function confirmation() {
     ];
     return $flexMessage;
 }
+function check_set_data($userName, $notificationTime, $target, $chatPersonality, $chatGender, $chatDialect) {
+    return [
+        "type" => "flex",
+        "altText" => "設定内容",
+        "contents" => [
+            "type" => "bubble",
+            "size" => "mega",
+            "body" => [
+                "type" => "box",
+                "layout" => "vertical",
+                "contents" => [
+                    [
+                        "type" => "text",
+                        "text" => "設定内容",
+                        "weight" => "bold",
+                        "size" => "lg"
+                    ],
+                    [
+                        "type" => "box",
+                        "layout" => "vertical",
+                        "margin" => "lg",
+                        "spacing" => "xs",
+                        "contents" => [
+                            [
+                                "type" => "box",
+                                "layout" => "baseline",
+                                "spacing" => "sm",
+                                "contents" => [
+                                    [
+                                        "type" => "text",
+                                        "text" => "ユーザ名",
+                                        "color" => "#aaaaaa",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ],
+                                    [
+                                        "type" => "text",
+                                        "text" => $userName,
+                                        "wrap" => true,
+                                        "color" => "#666666",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ]
+                                ]
+                            ],
+                            [
+                                "type" => "box",
+                                "layout" => "baseline",
+                                "spacing" => "sm",
+                                "contents" => [
+                                    [
+                                        "type" => "text",
+                                        "text" => "チャットの性別",
+                                        "color" => "#aaaaaa",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ],
+                                    [
+                                        "type" => "text",
+                                        "text" => $chatGender,
+                                        "wrap" => true,
+                                        "color" => "#666666",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ]
+                                ]
+                            ],
+                            [
+                                "type" => "box",
+                                "layout" => "baseline",
+                                "spacing" => "sm",
+                                "contents" => [
+                                    [
+                                        "type" => "text",
+                                        "text" => "チャットの性格",
+                                        "color" => "#aaaaaa",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ],
+                                    [
+                                        "type" => "text",
+                                        "text" => $chatPersonality,
+                                        "wrap" => true,
+                                        "color" => "#666666",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ]
+                                ]
+                            ],
+                            [
+                                "type" => "box",
+                                "layout" => "baseline",
+                                "spacing" => "sm",
+                                "contents" => [
+                                    [
+                                        "type" => "text",
+                                        "text" => "チャットの方言",
+                                        "color" => "#aaaaaa",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ],
+                                    [
+                                        "type" => "text",
+                                        "text" => $chatDialect,
+                                        "wrap" => true,
+                                        "color" => "#666666",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ]
+                                ]
+                            ],
+                            [
+                                "type" => "box",
+                                "layout" => "baseline",
+                                "spacing" => "sm",
+                                "contents" => [
+                                    [
+                                        "type" => "text",
+                                        "text" => "目標",
+                                        "color" => "#aaaaaa",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ],
+                                    [
+                                        "type" => "text",
+                                        "text" => $target,
+                                        "wrap" => true,
+                                        "color" => "#666666",
+                                        "size" => "md",
+                                        "flex" => 5,
+                                        "maxLines" => 0
+                                    ]
+                                ]
+                            ],
+                            [
+                                "type" => "box",
+                                "layout" => "baseline",
+                                "spacing" => "sm",
+                                "contents" => [
+                                    [
+                                        "type" => "text",
+                                        "text" => "通知時間",
+                                        "color" => "#aaaaaa",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ],
+                                    [
+                                        "type" => "text",
+                                        "text" => $notificationTime,
+                                        "wrap" => true,
+                                        "color" => "#666666",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ];
+}
+
+function check_target_and_keep_days($dayNum, $keep_days, $target){
+    return [
+        "type" => "flex",
+        "altText" => "現在の継続状況",
+        "contents" => [
+            "type" => "bubble",
+            "size" => "mega",
+            "body" => [
+                "type" => "box",
+                "layout" => "vertical",
+                "contents" => [
+                    [
+                        "type" => "text",
+                        "text" => "現在の継続状況",
+                        "weight" => "bold",
+                        "size" => "lg"
+                    ],
+                    [
+                        "type" => "box",
+                        "layout" => "vertical",
+                        "margin" => "lg",
+                        "spacing" => "xs",
+                        "contents" => [
+                            [
+                                "type" => "box",
+                                "layout" => "baseline",
+                                "spacing" => "sm",
+                                "contents" => [
+                                    [
+                                        "type" => "text",
+                                        "text" => "目標",
+                                        "color" => "#aaaaaa",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ],
+                                    [
+                                        "type" => "text",
+                                        "text" => $target,
+                                        "wrap" => true,
+                                        "color" => "#666666",
+                                        "size" => "md",
+                                        "flex" => 5,
+                                        "maxLines" => 0
+                                    ]
+                                ]
+                            ],
+                            [
+                                "type" => "box",
+                                "layout" => "baseline",
+                                "spacing" => "sm",
+                                "contents" => [
+                                    [
+                                        "type" => "text",
+                                        "text" => "経過日数",
+                                        "color" => "#aaaaaa",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ],
+                                    [
+                                        "type" => "text",
+                                        "text" => $dayNum . "日",
+                                        "wrap" => true,
+                                        "color" => "#666666",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ]
+                                ]
+                            ],
+                            [
+                                "type" => "box",
+                                "layout" => "baseline",
+                                "spacing" => "sm",
+                                "contents" => [
+                                    [
+                                        "type" => "text",
+                                        "text" => "継続日数",
+                                        "color" => "#aaaaaa",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ],
+                                    [
+                                        "type" => "text",
+                                        "text" => "継続" . $keep_days . "日",
+                                        "wrap" => true,
+                                        "color" => "#666666",
+                                        "size" => "md",
+                                        "flex" => 5
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ];
+}
+
 ?>
