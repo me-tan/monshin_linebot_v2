@@ -12,6 +12,8 @@ services:
     volumes:
       - ./web:/var/www/html
       - ./web/php.ini:/usr/local/etc/php/php.ini
+      - ./web:/var/log
+      - ./web:/var/cron_output.log
     ports:
       - 80:80
     depends_on:

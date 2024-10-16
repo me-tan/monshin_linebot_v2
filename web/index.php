@@ -105,6 +105,33 @@ function main()
     $count = 0;
     
     $sender = "user";
+
+    // //ユーザのタイプを取得
+    // $item = "user_type";
+
+    // $targetNum = "mnsn_sheet_linebot_test";
+
+    // $userType = getOneMysql($targetNum, $item, $userId)['user_type'];
+
+    // if(!empty($userType)){
+    //   $sender = $userType;
+    // }
+
+
+    // //ユーザタイプをデータベースに保存
+    // if($text == "1番です！"){
+    //   $item = "user_type";
+    //   updateOneMysql($sender,$targetNum, $item, $userId);
+    // }else if("2番です！"){
+    //   $item = "user_type";
+    //   updateOneMysql($sender,$targetNum, $item, $userId);
+    // }else if("3番です！"){
+    //   $item = "user_type";
+    //   updateOneMysql($sender,$targetNum, $item, $userId);
+    // }else if("4番です！"){
+    //   $item = "user_type";
+    //   updateOneMysql($sender,$targetNum, $item, $userId);
+    // }
     
     if($text == '運動を改善したい！' || $text == 'タバコに関して改善したい！' || $text == 'お酒に関して改善したい！' || $text == '間食を改善したい！' || $text == '朝食を改善したい！' || $text == '睡眠を改善したい！' || $text == '肥満を改善したい！' ){
       $situation = "choose_improvement_item";
@@ -299,7 +326,7 @@ function main()
       $item = "day_num";
       $dayNum = getOneMysql($targetNum, $item, $userId)['day_num'];
 
-      $frexMessage = rankingMake($dayNum, $keep_days, $group_point, $group_ranking, $targetNum);
+      // $frexMessage = rankingMake($dayNum, $keep_days, $group_point, $group_ranking, $targetNum);
       
       //ユーザの名前を取得
       $item = "userName";

@@ -15,3 +15,36 @@ COPY . /var/www/html
 
 # Composer をインストール
 COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+# パッケージをインストール
+RUN apt-get update && apt-get install -y \
+cron && \
+rm -rf /var/lib/apt/lists/* \
+bash \
+curl \
+tzdata \
+unzip \
+vim \
+libcurl4-gnutls-dev \
+
+
+
+# タイムゾーンの設定
+RUN cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+    echo "Asia/Tokyo" > /etc/timezone
+
+# cronジョブ用のスクリプトを追加
+COPY ./cronjob.sh /root/cronjob.sh
+RUN chmod +x /root/cronjob.sh
+
+# cronジョブの設定
+RUN echo "* * * * * /root/cronjob.sh >> /var/log/cron.log 2>&1" > /etc/cron.d/cronjob
+
+# cronログファイルを作成
+RUN touch /var/log/cron.log
+
+# 環境変数を設定
+ENV EDITOR=vim
+
+# cronサービスをフォアグラウンドで実行
+CMD ["sh", "-c", "service cron start && apache2-foreground"]
