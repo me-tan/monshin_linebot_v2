@@ -12,8 +12,7 @@ Dotenv\Dotenv::createImmutable(__DIR__)->load(); // .envを使用する
 // 引数にメッセージを入力して使う
 // 例：call_chatGPT('おはよう')
 function call_chatGPT($prompt) {
-    // $OPENAI_API_KEY = getenv("CHATGPT_API_KEY");
-    $OPENAI_API_KEY = "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";
+    $OPENAI_API_KEY = getenv("CHATGPT_API_KEY");
 
     error_log(print_r("15" , true) . "\n", 3, dirname(__FILE__) . '/debug.log');
 
